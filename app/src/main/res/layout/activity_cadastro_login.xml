@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".CadastroLoginActivity">
+    tools:context=".login.CadastroLoginActivity">
 
     <include
         android:id="@+id/toolbar"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:background="@drawable/background_card2"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="textPersonName"
             android:padding="8dp" />
 
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_card2"
-            android:hint="Last Name"
+            android:hint="@string/last_name"
             android:inputType="textPersonName"
             android:padding="8dp" />
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_card2"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:padding="8dp" />
 
@@ -56,7 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_card2"
-            android:hint="Password (6 or more characters"
+            android:hint="@string/password_6_or_more_characters"
             android:inputType="textPassword"
             android:padding="8dp" />
 
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_card2"
-            android:hint="Repeat Password"
+            android:hint="@string/repeat_password"
             android:inputType="textPassword"
             android:padding="8dp" />
 
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#6CB9FA"
             android:padding="8dp"
-            android:text="Create account and Sign In"
+            android:text="@string/create_account_and_sign_in"
             android:textAllCaps="false" />
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="Clicking Sign In, you accept the Harvard Art Museum User Agreement, Policy and Service Terms!"
+            android:text="@string/sign_in_accept_policy_and_service_terms"
             tools:layout_editor_absoluteX="159dp"
             tools:layout_editor_absoluteY="723dp" />
 
