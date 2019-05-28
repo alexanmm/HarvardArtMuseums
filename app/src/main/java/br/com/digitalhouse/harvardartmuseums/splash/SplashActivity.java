@@ -8,8 +8,6 @@ import br.com.digitalhouse.harvardartmuseums.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    EditText
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
