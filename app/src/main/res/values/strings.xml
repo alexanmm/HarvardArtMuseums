@@ -1,11 +1,5 @@
 <resources>
     <string name="app_name">HarvardArtMuseums</string>
-    <string name="title_activity_menu">MenuActivity</string>
-    <string name="name">Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="email">Email</string>
-    <string name="password_6_or_more_characters">Password (6 or more characters</string>
-    <string name="repeat_password">Repeat Password</string>
-    <string name="create_account_and_sign_in">Create account and Sign In</string>
-    <string name="sign_in_accept_policy_and_service_terms">Clicking Sign In, you accept the Harvard Art Museum User Agreement, Policy and Service Terms!</string>
+
+
 </resources>
