@@ -8,4 +8,8 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="create_account_and_sign_in">Create account and Sign In</string>
     <string name="sign_in_accept_policy_and_service_terms">Clicking Sign In, you accept the Harvard Art Museum User Agreement, Policy and Service Terms!</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Create account</string>
+    <string name="or">OR</string>
 </resources>
