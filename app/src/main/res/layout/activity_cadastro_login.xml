@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".login.CadastroLoginActivity">
+    android:background="#ffffff">
 
     <include
         android:id="@+id/toolbar"
@@ -31,7 +30,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/name"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextLastName"
@@ -40,7 +40,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -49,7 +50,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -58,7 +60,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/password_6_or_more_characters"
             android:inputType="textPassword"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextRepeatPassword"
@@ -105,6 +108,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
 
 </android.support.constraint.ConstraintLayout>
