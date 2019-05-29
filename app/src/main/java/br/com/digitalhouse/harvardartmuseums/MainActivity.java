@@ -14,33 +14,14 @@ import br.com.digitalhouse.harvardartmuseums.login.CadastroLoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button buttonCreateaccount = (Button) findViewById(R.id.buttonCreateAccount);
-            buttonCreateaccount.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(MainActivity.this, CadastroLoginActivity.class));
-                }
-            });
-
-            Button btnLogin =(Button) findViewById(R.id.BtnLogin);
-            btnLogin.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-
-
-
-            });
     }
 
-    }
+}
 
 
 
