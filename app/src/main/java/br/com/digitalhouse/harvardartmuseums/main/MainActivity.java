@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums;
+package br.com.digitalhouse.harvardartmuseums.main;
 
 
 import android.app.Activity;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.login.CadastroLoginActivity;
 
 
