@@ -4,3 +4,9 @@ espaço para divulgar os eventos que acontecem nos museus (Papo de Galeria, even
 elaborar o aplicativo levantamos a documentação das APIS (Obras, fotos, categorias, artistas, etc.), montamos as telas de Login, Home,
 Favoritos, entre outras, através do Marvel, atribuindo funcionalidades para cada uma, como animações, recursos de acessibilidade (aúdio
 guia/ leitura em voz alta) e de tradução, etc.
+
+Links do projeto:
+
+API: https://www.harvardartmuseums.org/collections/api
+Trello: https://trello.com/b/PK3YRUwk/projeto-integrador-museu
+Marvel: https://marvelapp.com/1f7df2d6/screen/57084922
