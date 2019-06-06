@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".game.GamePlay2Activity"></activity>
-        <activity android:name=".game.GamePlay1Activity" />
-        <activity android:name=".help.HelpActivity" />
-        <activity android:name=".game.GameMainActivity" />
+        <activity
+            android:name=".favs.FavsActivity"
+            android:label="@string/title_activity_favs"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".events.EventsActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.MainActivity" />
         <activity

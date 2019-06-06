@@ -12,7 +12,5 @@
     <string name="sign_in">Sign in</string>
     <string name="create_account">Create account</string>
     <string name="or">OR</string>
-    <string name="option_menu_settings">Settings</string>
-    <string name="option_menu_help">Help</string>
-    <string name="option_menu_log_out">Log out</string>
+    <string name="title_activity_favs">FavsActivity</string>
 </resources>
