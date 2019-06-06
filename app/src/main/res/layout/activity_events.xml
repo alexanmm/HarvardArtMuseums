@@ -13,15 +13,12 @@
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:background="@color/colorPrimary"
-            app:titleTextColor="@color/titleTextColor"
-            android:elevation="4dp">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
 
     </FrameLayout>
 
