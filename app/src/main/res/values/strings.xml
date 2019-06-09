@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HarvardArtMuseums</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="settings">Settings</string>
     <string name="name">Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
