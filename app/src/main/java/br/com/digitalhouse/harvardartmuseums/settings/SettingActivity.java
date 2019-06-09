@@ -77,13 +77,25 @@ public class SettingActivity extends AppCompatActivity {
         });
 
 
-    public boolean onCreateOptionsMenu (Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if(item.getItemId()==R.id.setting) {
-            Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
+        public boolean onCreateOptionsMenu (Menu menu){
+            getMenuInflater().inflate(R.menu.menu, menu);
+            return super.onCreateOptionsMenu(menu);
         }
+
+        public boolean onOptionsItemSelected(MenuItem item){
+
+            if (item.getItemId() == R.id.setting) {
+                Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
+            }
+
+            if (item.getItemId() == R.id.help) {
+                Toast.makeText(this, "Help Activity", Toast.LENGTH_SHORT).show();
+            }
+
+            if (item.getItemId() == R.id.logout) {
+                Toast.makeText(this, "Logout Activity", Toast.LENGTH_SHORT).show();
+            }
+            return super.OnptionsItemSelectd(item);
+        }
+    }
+}
