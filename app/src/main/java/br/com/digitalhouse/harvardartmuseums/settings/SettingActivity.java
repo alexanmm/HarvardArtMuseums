@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatSeekBar;
 import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 
@@ -75,5 +76,14 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-}
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if(item.getItemId()==R.id.setting) {
+            Toast.makeText(this, "Settings Activity", Toast.LENGTH_SHORT).show();
+        }
