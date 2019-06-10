@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".login.LoginActivity"></activity>
+        <activity android:name=".game.GamePlay2Activity"></activity>
+        <activity android:name=".game.GamePlay1Activity" />
+        <activity android:name=".help.HelpActivity" />
+        <activity android:name=".game.GameMainActivity" />
+        <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.MainActivity" />
         <activity
             android:name=".menu.MenuActivity"
