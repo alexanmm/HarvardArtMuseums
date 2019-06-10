@@ -20,7 +20,7 @@ public class GameMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_main);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Login");
+        toolbar.setTitle("Art Memories");
         setSupportActionBar(toolbar);
 
     }
