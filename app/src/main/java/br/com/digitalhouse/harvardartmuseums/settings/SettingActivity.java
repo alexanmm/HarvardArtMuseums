@@ -28,27 +28,6 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
 
-       // @Override
-       // public boolean onCreateOptionsMenu (Menu menu){
-       //     getMenuInflater().inflate(R.menu.menu_main, menu);
-         //   return super.onCreateOptionsMenu(menu);
-       // }
-
-       // @Override
-       // public boolean onOptionsItemSelected (MenuItem item){
-       //     if (item.getItemId() == R.id.action_settings) {
-       //         Toast.makeText(this, "action_settings", Toast.LENGTH_SHORT).show();
-       //     }
-
-       //     if (item.getItemId() == R.id.action_help) {
-       //         Toast.makeText(this, "action_help", Toast.LENGTH_SHORT).show();
-       //     }
-
-       //     if (item.getItemId() == R.id.action_logout) {
-       //         Toast.makeText(this, "action_logout", Toast.LENGTH_SHORT).show();
-       //     }
-       //     return super.onOptionsItemSelected(item);
-      //  }
 
         final SharedPreferences preferences = getSharedPreferences("PREFS", 0);
         stateSound = preferences.getBoolean("sound", false);
@@ -104,6 +83,30 @@ public class SettingActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        if (item.getItemId() == R.id.action_settings) {
+            Toast.makeText(this, "action_settings", Toast.LENGTH_SHORT).show();
+        }
+
+        if (item.getItemId() == R.id.action_help) {
+            Toast.makeText(this, "action_help", Toast.LENGTH_SHORT).show();
+        }
+
+        if (item.getItemId() == R.id.action_logout) {
+            Toast.makeText(this, "action_logout", Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
 
 
