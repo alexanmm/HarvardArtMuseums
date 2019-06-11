@@ -112,11 +112,13 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/ic_volume_up_black_24dp"
                             android:layout_marginLeft="8dp"
-                            android:layout_marginStart="8dp"/>
+                            android:layout_marginStart="8dp"
+                            />
 
                         <Button
+                            android:id="@+id/btnVolumeOn"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="On"
@@ -128,6 +130,7 @@
                             />
 
                         <Button
+                            android:id="@+id/btnVolumeOff"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="Off"
@@ -149,11 +152,12 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/ic_music_note_black_24dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"/>
 
                         <Button
+                            android:id="@+id/btnMusicOn"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="On"
@@ -165,6 +169,7 @@
                             />
 
                         <Button
+                            android:id="@+id/btnMusicOff"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="Off"
@@ -186,11 +191,12 @@
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@mipmap/ic_launcher"
+                            android:src="@drawable/ic_control_point_black_24dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"/>
 
                         <Button
+                            android:id="@+id/btnEasy"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="Easy"
@@ -202,6 +208,7 @@
                             />
 
                         <Button
+                            android:id="@+id/btnMedium"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="Medium"
@@ -213,6 +220,7 @@
                             />
 
                         <Button
+                            android:id="@+id/btnHard"
                             android:layout_width="60dp"
                             android:layout_height="30dp"
                             android:hint="Hard"

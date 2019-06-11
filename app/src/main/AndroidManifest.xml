@@ -9,14 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".game.GameControlsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".game.GameControlsActivity"/>
         <activity
             android:name=".favs.FavsActivity"
             android:label="@string/title_activity_favs"
@@ -30,9 +23,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.CadastroLoginActivity" />
         <activity android:name=".splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".game.GameMainActivity"></activity>
+        <activity android:name=".game.GameMainActivity"/>
         <activity android:name=".game.GamePlay1Activity" />
         <activity android:name=".game.GamePlay2Activity" />
         <activity android:name=".help.HelpActivity" />
