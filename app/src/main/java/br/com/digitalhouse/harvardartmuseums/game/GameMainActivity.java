@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
@@ -13,6 +16,9 @@ import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
 public class GameMainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private ImageView imageViewPlay;
+    private ImageView imageViewControls;
+    private ImageView imageViewLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,28 @@ public class GameMainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Art memories");
         setSupportActionBar(toolbar);
+
+        //Inicialização da view ref. ao inicio do jogo (play) e Inserção de ação para mudar para a activity do jogo
+        imageViewPlay = findViewById(R.id.imageViewPlay);
+
+        imageViewPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameMainActivity.this,GamePlay1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Inicialização da view ref. aos controles do jogo (controls) e Inserção de ação para mudar para a activity dos controles
+        imageViewControls = findViewById(R.id.imageViewControls);
+
+        imageViewControls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GameMainActivity.this,GameControlsActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
