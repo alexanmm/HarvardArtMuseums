@@ -100,6 +100,7 @@
                     android:background="#80ffffff">
 
                     <ImageView
+                        android:id="@+id/imageViewPlay"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
@@ -107,6 +108,7 @@
                         android:src="@drawable/play" />
 
                     <ImageView
+                        android:id="@+id/imageViewControls"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
@@ -114,6 +116,7 @@
                         android:src="@drawable/gamepad_variant" />
 
                     <ImageView
+                        android:id="@+id/imageViewLogout"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
