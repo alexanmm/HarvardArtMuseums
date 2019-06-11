@@ -1,5 +1,6 @@
 package br.com.digitalhouse.harvardartmuseums.game;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
 
 public class GamePlay1Activity extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class GamePlay1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_game_play1);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Art Memories");
+        toolbar.setTitle("Art memories");
         setSupportActionBar(toolbar);
 
     }
@@ -37,6 +39,13 @@ public class GamePlay1Activity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(GamePlay1Activity.this, HelpActivity.class);
+            startActivity(intent);
+        }
+
         return super.onOptionsItemSelected(item);
+
     }
 }

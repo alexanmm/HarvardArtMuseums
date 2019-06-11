@@ -10,17 +10,17 @@ import android.view.MenuItem;
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
 
-public class GamePlay2Activity extends AppCompatActivity {
+public class GameControlsActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_play2);
+        setContentView(R.layout.activity_game_controls);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Art memories");
+        toolbar.setTitle("Art memories - Controls");
         setSupportActionBar(toolbar);
 
     }
@@ -41,11 +41,14 @@ public class GamePlay2Activity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
-            Intent intent = new Intent(GamePlay2Activity.this, HelpActivity.class);
+            Intent intent = new Intent(GameControlsActivity.this, HelpActivity.class);
             startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);
-
     }
+
+
 }
+
+
