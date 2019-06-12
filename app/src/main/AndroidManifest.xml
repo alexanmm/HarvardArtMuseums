@@ -9,12 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".game.GameControlsActivity"/>
+        android:theme="@style/AppTheme">
+        <activity android:name=".information.InformationActivity"></activity>
+        <activity android:name=".settings.SettingActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".main.MainActivity" />
         <activity
             android:name=".favs.FavsActivity"
             android:label="@string/title_activity_favs"
-            android:theme="@style/NoActionBar"></activity>
+            android:theme="@style/NoActionBar" />
         <activity android:name=".events.EventsActivity" />
-        <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.MainActivity" />
         <activity
             android:name=".menu.MenuActivity"
