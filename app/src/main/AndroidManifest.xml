@@ -13,14 +13,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".information.InformationActivity"></activity>
         <activity android:name=".settings.SettingActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.MainActivity" />
+        <activity android:name=".home.MainActivity" />
         <activity
             android:name=".favs.FavsActivity"
             android:label="@string/title_activity_favs"
             android:theme="@style/NoActionBar" />
         <activity android:name=".events.EventsActivity" />
-
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".main.MainActivity" />
         <activity
             android:name=".menu.MenuActivity"
             android:label="@string/title_activity_menu"
