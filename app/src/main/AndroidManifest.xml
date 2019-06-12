@@ -20,7 +20,7 @@
             android:label="@string/title_activity_favs"
             android:theme="@style/NoActionBar" />
         <activity android:name=".events.EventsActivity" />
-        <activity android:name=".main.MainActivity" />
+
         <activity
             android:name=".menu.MenuActivity"
             android:label="@string/title_activity_menu"
@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".game.GameMainActivity"/>
+        <activity android:name=".game.GamePlay1Activity" />
+        <activity android:name=".game.GamePlay2Activity" />
+        <activity android:name=".help.HelpActivity" />
     </application>
 
 </manifest>
