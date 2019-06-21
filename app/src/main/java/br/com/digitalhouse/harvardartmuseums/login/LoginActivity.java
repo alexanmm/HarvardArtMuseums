@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.home.Home;
 import br.com.digitalhouse.harvardartmuseums.splash.SplashActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -45,9 +46,12 @@ public class LoginActivity extends AppCompatActivity {
 
                     Toast.makeText(v.getContext(),
                             "Login in progress...",
-                            Toast.LENGTH_LONG).show();
+                            Toast.LENGTH_SHORT).show();
+
 
                     // ->>>> Incluir neste ponto a chamada da MainActivity (Tela de Galeria)
+                    Intent intent = new Intent(LoginActivity.this, Home.class);
+                    startActivity(intent);
 
                 }
             }
