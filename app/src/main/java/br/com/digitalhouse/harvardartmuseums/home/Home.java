@@ -32,7 +32,7 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
 

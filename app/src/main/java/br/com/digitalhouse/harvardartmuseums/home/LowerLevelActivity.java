@@ -29,7 +29,7 @@ public class LowerLevelActivity extends AppCompatActivity implements BottomNavig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lower_level);
         overridePendingTransition(R.anim.activity_filho_entrando, R.anim.activity_pai_saindo);
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
         final ImageView estrela = findViewById(R.id.estrela1);
         final ImageView estrela2 = findViewById(R.id.estrela2);

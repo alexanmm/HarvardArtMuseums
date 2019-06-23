@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -119,8 +120,8 @@
 
                         <Button
                             android:id="@+id/btnVolumeOn"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="On"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -131,8 +132,8 @@
 
                         <Button
                             android:id="@+id/btnVolumeOff"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="Off"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -151,15 +152,15 @@
 
                         <ImageView
                             android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_height="@dimen/lay_height"
                             android:src="@drawable/ic_music_note_black_24dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"/>
 
                         <Button
                             android:id="@+id/btnMusicOn"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="On"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -170,8 +171,8 @@
 
                         <Button
                             android:id="@+id/btnMusicOff"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="Off"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -190,15 +191,15 @@
 
                         <ImageView
                             android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_height="@dimen/lay_height"
                             android:src="@drawable/ic_control_point_black_24dp"
                             android:layout_marginLeft="8dp"
                             android:layout_marginStart="8dp"/>
 
                         <Button
                             android:id="@+id/btnEasy"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="Easy"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -209,8 +210,8 @@
 
                         <Button
                             android:id="@+id/btnMedium"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="Medium"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
@@ -221,8 +222,8 @@
 
                         <Button
                             android:id="@+id/btnHard"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
                             android:hint="Hard"
                             android:background="@color/colorPrimary"
                             android:textColor="#000000"
