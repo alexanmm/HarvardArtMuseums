@@ -1,3 +1,6 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="lay_width">60dp</dimen>
+    <dimen name="lay_height">30dp</dimen>
+    <dimen name="txt_size">16sp</dimen>
 </resources>

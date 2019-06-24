@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums.information;
+package br.com.digitalhouse.harvardartmuseums.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,63 +10,74 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.events.EventsActivity;
-import br.com.digitalhouse.harvardartmuseums.home.Home;
 import br.com.digitalhouse.harvardartmuseums.favs.FavsActivity;
 import br.com.digitalhouse.harvardartmuseums.game.GameMainActivity;
 import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
+import br.com.digitalhouse.harvardartmuseums.information.InformationActivity;
 import br.com.digitalhouse.harvardartmuseums.login.LoginActivity;
 import br.com.digitalhouse.harvardartmuseums.settings.SettingActivity;
+import br.com.digitalhouse.harvardartmuseums.splash.SplashActivityLowerLevel;
 
-
-public class InformationActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_information);
-
+        setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+
+
+        ImageView subsolo = findViewById(R.id.imageViewAndarSS);
+
+        subsolo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, SplashActivityLowerLevel.class);
+                startActivity(intent);
+            }
+        });
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu (Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected (MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
         if (item.getItemId() == R.id.action_settings) {
-            Toast.makeText(this, "action_settings", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, SettingActivity.class);
             startActivity(intent);
         }
-
         if (item.getItemId() == R.id.action_help) {
-            Toast.makeText(this, "action_help", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, HelpActivity.class);
             startActivity(intent);
         }
 
         if (item.getItemId() == R.id.action_logout) {
-            Toast.makeText(this, "action_logout", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
+
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

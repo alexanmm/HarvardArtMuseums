@@ -1,5 +1,6 @@
 package br.com.digitalhouse.harvardartmuseums.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.home.Home;
 
 public class CadastroLoginActivity extends AppCompatActivity {
 
@@ -43,6 +45,8 @@ public class CadastroLoginActivity extends AppCompatActivity {
                             "Registered user successfully, login in progress...",
                             Toast.LENGTH_LONG).show();
 
+                    Intent intent = new Intent(CadastroLoginActivity.this, Home.class);
+                    startActivity(intent);
                     // ->>>> Incluir neste ponto a chamada da MainActivity (Tela de Galeria)
 
                 }

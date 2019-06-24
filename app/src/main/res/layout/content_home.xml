@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="#FFFFFF"
+    tools:context=".home.Home"
+    tools:showIn="@layout/activity_home">
+
+
+    <TextView
+        android:id="@+id/textViewChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:shadowColor="#00851515"
+        android:text="@string/choose_a_floor_to_visit_the_gallery"
+        android:textColor="#746E6E"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="24dp" />
+
+    <ImageView
+        android:id="@+id/imageViewPessoas"
+        android:layout_width="113dp"
+        android:layout_height="113dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewBorda"
+        app:srcCompat="@drawable/personagem04"
+        android:contentDescription="@string/pessoas" />
+
+    <ImageView
+        android:id="@+id/imageViewBorda"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChoose"
+        app:srcCompat="@drawable/borda"
+        android:contentDescription="@string/borda" />
+
+    <ImageView
+        android:id="@+id/imageViewAndarSS"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAndar1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/predio_ss"
+        android:contentDescription="@string/ss" />
+
+    <ImageView
+        android:id="@+id/imageViewAndar1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAndar2"
+        app:srcCompat="@drawable/predio_1andar"
+        android:layout_marginRight="50dp"
+        android:contentDescription="@string/andar1" />
+
+    <ImageView
+        android:id="@+id/imageViewAndar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAndar3"
+        app:srcCompat="@drawable/predio_2andar"
+        android:contentDescription="@string/andar2" />
+
+    <ImageView
+        android:id="@+id/imageViewAndar3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAndar4"
+        app:srcCompat="@drawable/predio_3andar"
+        android:contentDescription="@string/andar3" />
+
+    <ImageView
+        android:id="@+id/imageViewAndar4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAndar5"
+        app:srcCompat="@drawable/predio_4andar"
+        android:contentDescription="@string/andar4" />
+
+    <ImageView
+        android:id="@+id/imageViewAndar5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPessoas"
+        app:srcCompat="@drawable/predio_5andar"
+        android:contentDescription="@string/andar5" />
+
+</android.support.constraint.ConstraintLayout>
