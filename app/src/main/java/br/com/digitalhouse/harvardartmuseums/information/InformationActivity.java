@@ -32,6 +32,7 @@ public class InformationActivity extends AppCompatActivity implements BottomNavi
         setContentView(R.layout.activity_information);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Information");
         setSupportActionBar(toolbar);
 
         navigationView = findViewById(R.id.navigation);

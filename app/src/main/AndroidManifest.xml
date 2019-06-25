@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".information.InformationActivity"></activity>
         <activity android:name=".settings.SettingActivity" />
-        <activity android:name=".home.MainActivity" />
+        <activity android:name=".home.Home" />
         <activity
             android:name=".favs.FavsActivity"
             android:label="@string/title_activity_favs"
