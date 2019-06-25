@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".information.InformationActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Each click is an opportunity to interact with us!"
         android:textColor="#000000" />
@@ -129,18 +136,20 @@
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:background="#FFFFFF"
             app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
             app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/navigation" />
 
     </android.support.constraint.ConstraintLayout>
 
 
-
 </LinearLayout>
+
+    </ScrollView>
