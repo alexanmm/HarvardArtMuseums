@@ -26,7 +26,6 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.CadastroLoginActivity" />
-        <activity android:name=".home.galeria.view.GaleriaActivity" />
         <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
