@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
+import br.com.digitalhouse.harvardartmuseums.settings.SettingActivity;
 
 public class GamePlay1Activity extends AppCompatActivity {
 
@@ -59,7 +60,11 @@ public class GamePlay1Activity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        return super.onOptionsItemSelected(item);
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(GamePlay1Activity.this, SettingActivity.class);
+            startActivity(intent);
+        }
 
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -3,4 +3,5 @@
     <dimen name="lay_width">60dp</dimen>
     <dimen name="lay_height">30dp</dimen>
     <dimen name="txt_size">16sp</dimen>
+    <dimen name="galeria_obra_icon">16dp</dimen>
 </resources>
