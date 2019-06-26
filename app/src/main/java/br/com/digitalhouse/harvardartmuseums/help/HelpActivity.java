@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.game.GameControlsActivity;
 import br.com.digitalhouse.harvardartmuseums.game.GameMainActivity;
+import br.com.digitalhouse.harvardartmuseums.settings.SettingActivity;
 
 public class HelpActivity extends AppCompatActivity {
 
@@ -37,6 +39,17 @@ public class HelpActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_help) {
+            Intent intent = new Intent(HelpActivity.this, HelpActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(HelpActivity.this, SettingActivity.class);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
     }

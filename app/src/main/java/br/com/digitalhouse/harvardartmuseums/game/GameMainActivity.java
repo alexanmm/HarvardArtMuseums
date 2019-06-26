@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
+import br.com.digitalhouse.harvardartmuseums.settings.SettingActivity;
 
 public class GameMainActivity extends AppCompatActivity {
 
@@ -70,6 +71,11 @@ public class GameMainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
             Intent intent = new Intent(GameMainActivity.this, HelpActivity.class);
+            startActivity(intent);
+        }
+
+        if (id == R.id.action_settings) {
+            Intent intent = new Intent(GameMainActivity.this, SettingActivity.class);
             startActivity(intent);
         }
 
