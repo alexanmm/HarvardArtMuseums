@@ -12,6 +12,13 @@
         <activity android:name=".game.GameControlsActivity"/>
         android:theme="@style/AppTheme">
         <activity android:name=".information.InformationActivity"></activity>
+        <activity android:name=".home.galeria.view.GaleriaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".settings.SettingActivity" />
         <activity android:name=".home.Home" />
         <activity
@@ -27,11 +34,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.CadastroLoginActivity" />
         <activity android:name=".splash.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".game.GameMainActivity"/>
         <activity android:name=".game.GamePlay1Activity" />
