@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".game.GameControlsActivity"/>
-        android:theme="@style/AppTheme">
-        <activity android:name=".information.InformationActivity"></activity>
+        <activity android:name=".home.DetalheDaObraActivity"></activity>
+        <activity android:name=".game.GameControlsActivity" /> <!-- android:theme="@style/AppTheme" -->
+        <activity android:name=".information.InformationActivity" />
         <activity android:name=".home.galeria.view.GaleriaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +33,10 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".login.CadastroLoginActivity" />
-        <activity android:name=".splash.SplashActivity">
-
-        </activity>
-        <activity android:name=".game.GameMainActivity"/>
+        <activity android:name=".splash.SplashActivityLevel" />
+        <activity android:name=".home.LevelActivity" />
+        <activity android:name=".splash.SplashActivity"></activity>
+        <activity android:name=".game.GameMainActivity" />
         <activity android:name=".game.GamePlay1Activity" />
         <activity android:name=".game.GamePlay2Activity" />
         <activity android:name=".help.HelpActivity" />

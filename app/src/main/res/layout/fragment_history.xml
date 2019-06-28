@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.galeria.fragmentos.HistoryFragment">
+
+    <TextView
+        android:id="@+id/textViewIdentification"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/background_light"
+        android:text="@string/history_title"
+        android:textColor="#47525E"
+        android:textSize="16sp"
+        app:fontFamily="sans-serif-black"
+        app:layout_constraintStart_toStartOf="@+id/textViewInfo1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewInfo1"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="12dp"
+        android:text="Object Number"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewInfo3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIdentification" />
+
+    <TextView
+        android:id="@+id/textViewInfo2"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="12dp"
+        android:text="2014.293"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewInfo4"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfo3" />
+
+    <TextView
+        android:id="@+id/textViewInfo3"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="12dp"
+        android:text="People"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/textViewInfo2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfo1" />
+
+    <TextView
+        android:id="@+id/textViewInfo4"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp"
+        android:text="Rebecca Horn, German (Michelstadt, Germany born 1944)"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfo2"
+        app:layout_constraintVertical_bias="0.042" />
+
+
+</android.support.constraint.ConstraintLayout>

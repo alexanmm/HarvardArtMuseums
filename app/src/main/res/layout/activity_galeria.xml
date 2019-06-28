@@ -8,7 +8,12 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewGaleria"
@@ -18,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        tools:listitem="@layout/recyclerview_galeria_item"/>
+        tools:listitem="@layout/recyclerview_galeria_item" />
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

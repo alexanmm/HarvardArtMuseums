@@ -11,7 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <android.support.v7.widget.AppCompatImageView
+        <TextView
+            android:id="@+id/textViewAndarAtual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="1dp"
+            android:text="0"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewDescricaoObra"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imageViewImagemObra"
         android:layout_width="match_parent"
         android:layout_height="150dp"

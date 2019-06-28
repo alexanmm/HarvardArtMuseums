@@ -19,32 +19,81 @@ import br.com.digitalhouse.harvardartmuseums.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.information.InformationActivity;
 import br.com.digitalhouse.harvardartmuseums.login.LoginActivity;
 import br.com.digitalhouse.harvardartmuseums.settings.SettingActivity;
-import br.com.digitalhouse.harvardartmuseums.splash.SplashActivityLowerLevel;
+import br.com.digitalhouse.harvardartmuseums.splash.SplashActivityLevel;
 
 public class Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
-
-    private BottomNavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
 
-        navigationView = findViewById(R.id.navigation);
+        BottomNavigationView navigationView = findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
 
-
         ImageView subsolo = findViewById(R.id.imageViewAndarSS);
+        ImageView andar1 = findViewById(R.id.imageViewAndar1);
+        ImageView andar2 = findViewById(R.id.imageViewAndar2);
+        ImageView andar3 = findViewById(R.id.imageViewAndar3);
+        ImageView andar4 = findViewById(R.id.imageViewAndar4);
+        ImageView andar5 = findViewById(R.id.imageViewAndar5);
 
         subsolo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, SplashActivityLowerLevel.class);
-                startActivity(intent);
+                AndarOnClick("0");
             }
         });
+        andar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndarOnClick("1");
+            }
+        });
+
+        andar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndarOnClick("2");
+            }
+        });
+
+        andar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndarOnClick("3");
+            }
+        });
+
+        andar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndarOnClick("4");
+            }
+        });
+
+        andar5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AndarOnClick("5");
+            }
+        });
+
+    }
+
+    private void AndarOnClick(String andarEscolhido) {
+        Intent intent = new Intent(Home.this, SplashActivityLevel.class);
+        CriaBunble(intent,andarEscolhido);
+        startActivity(intent);
+    }
+
+    private void CriaBunble(Intent intent,String numeroAndar) {
+        Bundle bundle = new Bundle();
+        bundle.putString("ANDAR", numeroAndar);
+        intent.putExtras(bundle);
     }
 
     @Override

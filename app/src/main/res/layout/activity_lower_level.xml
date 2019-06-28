@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splash.SplashActivityLowerLevel">
+    tools:context=".splash.SplashActivityLevel">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/obra1"
+                    android:id="@+id/obra"
                     android:layout_width="match_parent"
                     android:layout_height="211dp"
                     android:scaleType="centerCrop"
@@ -64,7 +64,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/sharevariant"
                     app:layout_constraintStart_toEndOf="@+id/download"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/sharevariant"
                     android:contentDescription="@string/share" />
 
@@ -76,7 +76,7 @@
                     android:src="@drawable/star"
                     app:layout_constraintEnd_toStartOf="@+id/estrela5"
                     app:layout_constraintStart_toEndOf="@+id/estrela3"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/star"
                     android:contentDescription="@string/estrela4" />
 
@@ -89,7 +89,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/googletranslate"
                     app:layout_constraintStart_toEndOf="@+id/share"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/googletranslate"
                     android:contentDescription="@string/translate" />
 
@@ -103,7 +103,7 @@
                     android:src="@drawable/star"
                     app:layout_constraintEnd_toStartOf="@+id/calendar"
                     app:layout_constraintStart_toEndOf="@+id/estrela4"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/star"
                     android:contentDescription="@string/estrela5" />
 
@@ -116,7 +116,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/download"
                     app:layout_constraintStart_toEndOf="@+id/calendar"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/download"
                     android:contentDescription="@string/download" />
 
@@ -129,7 +129,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/raster"
                     app:layout_constraintStart_toEndOf="@+id/translate"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/raster"
                     android:contentDescription="@string/raster" />
 
@@ -155,7 +155,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/heartoutline"
                     app:layout_constraintStart_toEndOf="@+id/raster"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/heartoutline"
                     android:contentDescription="@string/favoritethis" />
 
@@ -169,7 +169,7 @@
                     android:src="@drawable/star"
                     app:layout_constraintEnd_toStartOf="@+id/estrela3"
                     app:layout_constraintStart_toEndOf="@+id/estrela1"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/star"
                     android:contentDescription="@string/estrela2" />
 
@@ -183,7 +183,7 @@
                     android:src="@drawable/star"
                     app:layout_constraintEnd_toStartOf="@+id/estrela4"
                     app:layout_constraintStart_toEndOf="@+id/estrela2"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/star"
                     android:contentDescription="@string/estrela3" />
 
@@ -196,7 +196,7 @@
                     android:layout_marginTop="6dp"
                     android:src="@drawable/calendarsearch"
                     app:layout_constraintStart_toEndOf="@+id/estrela5"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/calendarsearch"
                     android:contentDescription="@string/calendar" />
 
@@ -208,7 +208,7 @@
                     android:src="@drawable/star"
                     app:layout_constraintEnd_toStartOf="@+id/estrela2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/obra1"
+                    app:layout_constraintTop_toBottomOf="@+id/obra"
                     app:srcCompat="@drawable/star"
                     android:contentDescription="@string/estrela1" />
 

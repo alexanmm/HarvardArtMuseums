@@ -46,4 +46,11 @@
     <string name="calendar">calendar</string>
     <string name="estrela1">estrela1</string>
     <string name="flying_books_under_black_rain_painting_sculpture">Flying Books Under Black Rain Painting Sculpture</string>
+    <string name="floorplan">Floor Plan</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="identification_title">Identification and Creation</string>
+    <string name="history_title">History</string>
+    <string name="descriptions_title">Descriptions</string>
 </resources>

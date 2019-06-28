@@ -4,14 +4,24 @@ public class Obra {
     private int imagemObra;
     private String nomeObra;
     private String descricaoObra;
+    private String andarObra;
 
     public Obra() {
     }
 
-    public Obra(int imagemObra, String nomeObra, String descricaoObra) {
+    public Obra(int imagemObra, String nomeObra, String descricaoObra,String andarObra) {
         this.imagemObra = imagemObra;
         this.nomeObra = nomeObra;
         this.descricaoObra = descricaoObra;
+        this.andarObra = andarObra;
+    }
+
+    public String getAndarObra() {
+        return andarObra;
+    }
+
+    public void setAndarObra(String andarObra) {
+        this.andarObra = andarObra;
     }
 
     public int getImagemObra() {

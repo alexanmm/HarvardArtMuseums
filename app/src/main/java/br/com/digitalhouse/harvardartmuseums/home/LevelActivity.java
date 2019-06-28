@@ -17,7 +17,7 @@ import br.com.digitalhouse.harvardartmuseums.game.GameMainActivity;
 import br.com.digitalhouse.harvardartmuseums.information.InformationActivity;
 
 
-public class LowerLevelActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class LevelActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private BottomNavigationView navigationView;
 
