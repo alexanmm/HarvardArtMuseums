@@ -1,250 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splash.SplashActivityLevel">
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="#FFFFFF"
+    app:layout_constraintBottom_toTopOf="@+id/navigation"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/obra"
-                    android:layout_width="match_parent"
-                    android:layout_height="211dp"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/obra1"
-                    android:contentDescription="@string/obra1" />
-
-                <ImageView
-                    android:id="@+id/obra2"
-                    android:layout_width="match_parent"
-                    android:layout_height="211dp"
-                    android:layout_marginTop="8dp"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
-                    app:srcCompat="@drawable/obra2"
-                    android:contentDescription="@string/obra2" />
-
-                <ImageView
-                    android:id="@+id/share"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/sharevariant"
-                    app:layout_constraintStart_toEndOf="@+id/download"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/sharevariant"
-                    android:contentDescription="@string/share" />
-
-                <ImageView
-                    android:id="@+id/estrela4"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/star"
-                    app:layout_constraintEnd_toStartOf="@+id/estrela5"
-                    app:layout_constraintStart_toEndOf="@+id/estrela3"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/star"
-                    android:contentDescription="@string/estrela4" />
-
-                <ImageView
-                    android:id="@+id/translate"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/googletranslate"
-                    app:layout_constraintStart_toEndOf="@+id/share"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/googletranslate"
-                    android:contentDescription="@string/translate" />
-
-                <ImageView
-                    android:id="@+id/estrela5"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="59dp"
-                    android:layout_marginRight="59dp"
-                    android:src="@drawable/star"
-                    app:layout_constraintEnd_toStartOf="@+id/calendar"
-                    app:layout_constraintStart_toEndOf="@+id/estrela4"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/star"
-                    android:contentDescription="@string/estrela5" />
-
-                <ImageView
-                    android:id="@+id/download"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/download"
-                    app:layout_constraintStart_toEndOf="@+id/calendar"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/download"
-                    android:contentDescription="@string/download" />
-
-                <ImageView
-                    android:id="@+id/raster"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/raster"
-                    app:layout_constraintStart_toEndOf="@+id/translate"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/raster"
-                    android:contentDescription="@string/raster" />
-
-                <TextView
-                    android:id="@+id/textViewTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="27dp"
-                    android:layout_marginEnd="199dp"
-                    android:layout_marginRight="199dp"
-                    android:text="@string/rebecca_horn"
-                    android:textSize="30sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/estrela4" />
-
-                <ImageView
-                    android:id="@+id/favoritethis"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/heartoutline"
-                    app:layout_constraintStart_toEndOf="@+id/raster"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/heartoutline"
-                    android:contentDescription="@string/favoritethis" />
-
-                <ImageView
-                    android:id="@+id/estrela2"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginRight="1dp"
-                    android:src="@drawable/star"
-                    app:layout_constraintEnd_toStartOf="@+id/estrela3"
-                    app:layout_constraintStart_toEndOf="@+id/estrela1"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/star"
-                    android:contentDescription="@string/estrela2" />
-
-                <ImageView
-                    android:id="@+id/estrela3"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="1dp"
-                    android:src="@drawable/star"
-                    app:layout_constraintEnd_toStartOf="@+id/estrela4"
-                    app:layout_constraintStart_toEndOf="@+id/estrela2"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/star"
-                    android:contentDescription="@string/estrela3" />
-
-                <ImageView
-                    android:id="@+id/calendar"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginStart="59dp"
-                    android:layout_marginLeft="59dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/calendarsearch"
-                    app:layout_constraintStart_toEndOf="@+id/estrela5"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/calendarsearch"
-                    android:contentDescription="@string/calendar" />
-
-                <ImageView
-                    android:id="@+id/estrela1"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginTop="6dp"
-                    android:src="@drawable/star"
-                    app:layout_constraintEnd_toStartOf="@+id/estrela2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/obra"
-                    app:srcCompat="@drawable/star"
-                    android:contentDescription="@string/estrela1" />
-
-                <TextView
-                    android:id="@+id/textViewDescription"
-                    android:layout_width="308dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="77dp"
-                    android:text="@string/flying_books_under_black_rain_painting_sculpture"
-                    android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-                    android:layout_marginRight="77dp" />
-
-            </android.support.constraint.ConstraintLayout>
-
-
-        </LinearLayout>
-    </ScrollView>
-
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/obra"
+                android:layout_width="match_parent"
+                android:layout_height="211dp"
+                android:contentDescription="@string/obra1"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/obra1" />
+
+            <ImageView
+                android:id="@+id/obra2"
+                android:layout_width="match_parent"
+                android:layout_height="211dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/obra2"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescription"
+                app:srcCompat="@drawable/obra2" />
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/share"
+                android:src="@drawable/sharevariant"
+                app:layout_constraintStart_toEndOf="@+id/download"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/sharevariant" />
+
+            <ImageView
+                android:id="@+id/estrela4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/estrela4"
+                android:src="@drawable/star"
+                app:layout_constraintEnd_toStartOf="@+id/estrela5"
+                app:layout_constraintStart_toEndOf="@+id/estrela3"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/star" />
+
+            <ImageView
+                android:id="@+id/translate"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/translate"
+                android:src="@drawable/googletranslate"
+                app:layout_constraintStart_toEndOf="@+id/share"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/googletranslate" />
+
+            <ImageView
+                android:id="@+id/estrela5"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="59dp"
+                android:layout_marginRight="59dp"
+                android:contentDescription="@string/estrela5"
+                android:src="@drawable/star"
+                app:layout_constraintEnd_toStartOf="@+id/calendar"
+                app:layout_constraintStart_toEndOf="@+id/estrela4"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/star" />
+
+            <ImageView
+                android:id="@+id/download"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/download"
+                android:src="@drawable/download"
+                app:layout_constraintStart_toEndOf="@+id/calendar"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/download" />
+
+            <ImageView
+                android:id="@+id/raster"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/raster"
+                android:src="@drawable/raster"
+                app:layout_constraintStart_toEndOf="@+id/translate"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/raster" />
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:layout_marginEnd="199dp"
+                android:layout_marginRight="199dp"
+                android:text="@string/rebecca_horn"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/estrela4" />
+
+            <ImageView
+                android:id="@+id/favoritethis"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/favoritethis"
+                android:src="@drawable/heartoutline"
+                app:layout_constraintStart_toEndOf="@+id/raster"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/heartoutline" />
+
+            <ImageView
+                android:id="@+id/estrela2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginRight="1dp"
+                android:contentDescription="@string/estrela2"
+                android:src="@drawable/star"
+                app:layout_constraintEnd_toStartOf="@+id/estrela3"
+                app:layout_constraintStart_toEndOf="@+id/estrela1"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/star" />
+
+            <ImageView
+                android:id="@+id/estrela3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="1dp"
+                android:contentDescription="@string/estrela3"
+                android:src="@drawable/star"
+                app:layout_constraintEnd_toStartOf="@+id/estrela4"
+                app:layout_constraintStart_toEndOf="@+id/estrela2"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/star" />
+
+            <ImageView
+                android:id="@+id/calendar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="59dp"
+                android:layout_marginLeft="59dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/calendar"
+                android:src="@drawable/calendarsearch"
+                app:layout_constraintStart_toEndOf="@+id/estrela5"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/calendarsearch" />
+
+            <ImageView
+                android:id="@+id/estrela1"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="6dp"
+                android:contentDescription="@string/estrela1"
+                android:src="@drawable/star"
+                app:layout_constraintEnd_toStartOf="@+id/estrela2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/obra"
+                app:srcCompat="@drawable/star" />
+
+            <TextView
+                android:id="@+id/textViewDescription"
+                android:layout_width="308dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="77dp"
+                android:layout_marginRight="77dp"
+                android:text="@string/flying_books_under_black_rain_painting_sculpture"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </LinearLayout>
+</ScrollView>

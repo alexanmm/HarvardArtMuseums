@@ -2,6 +2,6 @@
 <resources>
     <color name="colorPrimary">#FFC107</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="titleTextColor">#FFFFFF</color>
+    <color name="colorAccent">#6CB9FA</color>
+    <color name="toolbar_text_icon_color">#FFFFFF</color>
 </resources>

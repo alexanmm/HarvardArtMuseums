@@ -5,11 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.GameMainActivity">
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+    tools:context=".fragments.game.GameMainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -130,20 +126,6 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />
 
 </android.support.constraint.ConstraintLayout>

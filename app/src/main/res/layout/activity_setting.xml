@@ -1,42 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".settings.SettingActivity">
+    tools:context=".view.settings.SettingsActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
 
-    <EditText
-        android:id="@+id/device"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:padding="8dp"
-        android:text="Device"
-        android:textSize="15dp"
-        android:textColor="#000000"/>
-
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:paddingLeft="8dp"
-        android:src="@drawable/baseline_brightness_medium_black_18dp" />
+        android:src="@drawable/baseline_brightness_medium_black_18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device" />
 
     <TextView
         android:id="@+id/textViewBright"
@@ -44,118 +32,119 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/sound"
         android:layout_below="@+id/device"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_toEndOf="@+id/imageView1"
         android:layout_toRightOf="@+id/imageView1"
         android:gravity="center"
         android:padding="8dp"
         android:text="Bright Screen"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView1"
+        app:layout_constraintStart_toEndOf="@+id/imageView1"
+        app:layout_constraintTop_toTopOf="@+id/imageView1" />
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/device"
         android:layout_alignParentEnd="false"
         android:layout_alignParentRight="false"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:padding="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_toEndOf="@+id/textViewBright"
-        android:layout_toRightOf="@+id/textViewBright" />
-
-
+        android:layout_toRightOf="@+id/textViewBright"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewBright"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewBright"
+        app:layout_constraintTop_toTopOf="@+id/textViewBright" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:paddingLeft="8dp"
-        android:src="@drawable/baseline_notifications_black_18dp" />
-
+        android:src="@drawable/baseline_notifications_black_18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
     <android.support.v7.widget.SwitchCompat
 
         android:id="@+id/sound"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/seekBar"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_toEndOf="@+id/imageView2"
         android:layout_toRightOf="@+id/imageView2"
         android:padding="8dp"
         android:text="Sound"
-        android:textColor="#000000" />
-
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sound"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:paddingLeft="8dp"
-        android:src="@drawable/baseline_comment_black_18dp" />
+        android:src="@drawable/baseline_comment_black_18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <android.support.v7.widget.SwitchCompat
         android:id="@+id/notify"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@+id/sound"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_toEndOf="@+id/imageView"
         android:layout_toRightOf="@+id/imageView"
         android:padding="8dp"
         android:text="Notify new events"
-        android:textColor="#000000" />
-
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
+    <EditText
+        android:id="@+id/device"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
-        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="8dp"
+        android:text="Device"
+        android:textColor="#000000"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navigation" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    </android.support.constraint.ConstraintLayout>
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

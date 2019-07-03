@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.galeria.view.GaleriaActivity">
+    tools:context=".fragments.home.galeria.view.GaleriaActivity">
 
     <include
         android:id="@+id/toolbar"

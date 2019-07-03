@@ -5,7 +5,7 @@
     android:id="@+id/containerObra"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.galeria.fragmentos.ObraFragment"
+    tools:context=".fragments.home.galeria.fragmentos.ObraFragment"
     tools:layout_editor_absoluteY="25dp">
 
     <ImageView

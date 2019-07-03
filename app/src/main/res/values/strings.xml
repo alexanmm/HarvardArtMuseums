@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HarvardArtMuseums</string>
+    <string name="app_name">Harvard Art Museums</string>
     <string name="title_activity_menu">MenuActivity</string>
     <string name="name">Name</string>
     <string name="last_name">Last Name</string>
@@ -14,7 +14,7 @@
     <string name="or">OR</string>
     <string name="title_activity_favs">FavsActivity</string>
     <string name="menu_home">Home</string>
-    <string name="menu_information">Information</string>
+    <string name="menu_information">Info</string>
     <string name="menu_events">Events</string>
     <string name="menu_favorites">Favorites</string>
     <string name="menu_game">Game</string>

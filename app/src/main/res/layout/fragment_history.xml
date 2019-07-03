@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.galeria.fragmentos.HistoryFragment">
+    tools:context=".fragments.home.galeria.fragmentos.HistoryFragment">
 
     <TextView
         android:id="@+id/textViewIdentification"

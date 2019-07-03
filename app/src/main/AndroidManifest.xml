@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.digitalhouse.harvardartmuseums">
 
     <application
@@ -8,38 +9,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".home.DetalheDaObraActivity"></activity>
-        <activity android:name=".game.GameControlsActivity" /> <!-- android:theme="@style/AppTheme" -->
-        <activity android:name=".information.InformationActivity" />
-        <activity android:name=".home.galeria.view.GaleriaActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.base.BaseActivity"></activity>
+        <activity android:name=".fragments.home.DetalheDaObraActivity" />
+        <activity android:name=".fragments.game.GameControlsActivity" />
+        <activity android:name=".fragments.home.galeria.view.GaleriaActivity" />
+        <activity android:name=".view.settings.SettingsActivity" />
+        <activity android:name=".fragments.home.Home" />
+        <activity android:name=".view.login.LoginActivity" />
+        <activity android:name=".view.login.CadastroLoginActivity" />
+        <activity android:name=".view.splash.SplashActivityLevel" />
+        <activity android:name=".fragments.home.LevelActivity" />
+        <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".settings.SettingActivity" />
-        <activity android:name=".home.Home" />
-        <activity
-            android:name=".favs.FavsActivity"
-            android:label="@string/title_activity_favs"
-            android:theme="@style/NoActionBar" />
-        <activity android:name=".events.EventsActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.MainActivity" />
-        <activity
-            android:name=".menu.MenuActivity"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".login.CadastroLoginActivity" />
-        <activity android:name=".splash.SplashActivityLevel" />
-        <activity android:name=".home.LevelActivity" />
-        <activity android:name=".splash.SplashActivity"></activity>
-        <activity android:name=".game.GameMainActivity" />
-        <activity android:name=".game.GamePlay1Activity" />
-        <activity android:name=".game.GamePlay2Activity" />
-        <activity android:name=".help.HelpActivity" />
+        <activity android:name=".fragments.game.GameMainActivity" />
+        <activity android:name=".fragments.game.GamePlay1Activity" />
+        <activity android:name=".fragments.game.GamePlay2Activity" />
+        <activity android:name=".view.help.HelpActivity" />
     </application>
 
 </manifest>
