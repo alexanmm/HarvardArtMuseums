@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.fragments.events.EventFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.favorite.FavoriteFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.game.GameMainActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
 import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
@@ -140,12 +142,12 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
                 return true;
             }
             case R.id.navigation_events: {
-                Intent intent = new Intent(this, EventsActivity.class);
+                Intent intent = new Intent(this, EventFragment.class);
                 startActivity(intent);
                 return true;
             }
             case R.id.navigation_favorites: {
-                Intent intent = new Intent(this, FavsActivity.class);
+                Intent intent = new Intent(this, FavoriteFragment.class);
                 startActivity(intent);
                 return true;
             }

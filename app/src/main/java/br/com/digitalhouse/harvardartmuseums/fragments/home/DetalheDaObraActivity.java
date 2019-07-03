@@ -18,6 +18,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.fragments.events.EventFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.favorite.FavoriteFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.fragmentos.IdentificationFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.game.GameMainActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
@@ -140,12 +142,12 @@ public class DetalheDaObraActivity extends AppCompatActivity implements BottomNa
                 return true;
             }
             case R.id.navigation_events: {
-                Intent intent = new Intent(this, EventsActivity.class);
+                Intent intent = new Intent(this, EventFragment.class);
                 startActivity(intent);
                 return true;
             }
             case R.id.navigation_favorites: {
-                Intent intent = new Intent(this, FavsActivity.class);
+                Intent intent = new Intent(this, FavoriteFragment.class);
                 startActivity(intent);
                 return true;
             }
