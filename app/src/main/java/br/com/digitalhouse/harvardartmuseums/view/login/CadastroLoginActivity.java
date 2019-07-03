@@ -15,6 +15,7 @@ import java.util.Objects;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.Home;
+import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
 
 public class CadastroLoginActivity extends AppCompatActivity {
 
@@ -47,7 +48,7 @@ public class CadastroLoginActivity extends AppCompatActivity {
                             "Registered user successfully, login in progress...",
                             Toast.LENGTH_LONG).show();
 
-                    Intent intent = new Intent(CadastroLoginActivity.this, Home.class);
+                    Intent intent = new Intent(CadastroLoginActivity.this, BaseActivity.class);
                     startActivity(intent);
                     // ->>>> Incluir neste ponto a chamada da BaseActivity (Tela de Galeria)
 

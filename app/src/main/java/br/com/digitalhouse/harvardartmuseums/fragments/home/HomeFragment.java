@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -35,10 +36,10 @@ public class HomeFragment extends Fragment {
         ImageView andar4 = view.findViewById(R.id.imageViewAndar4);
         ImageView andar5 = view.findViewById(R.id.imageViewAndar5);
 
-        subsolo.setOnClickListener(new View.OnClickListener() {
+/*        subsolo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("1");
+                ((BaseActivity) getActivity()).replaceFragment();
             }
         });
         andar1.setOnClickListener(new View.OnClickListener() {
@@ -70,12 +71,12 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 replaceFragment("5");
             }
-        });
+        });*/
 
         return view;
     }
 
-    private void AndarOnClick(String andarEscolhido) {
+ /*   private void AndarOnClick(String andarEscolhido) {
         Intent intent = new Intent(Home.this, SplashActivityLevel.class);
         CriaBunble(intent,andarEscolhido);
         startActivity(intent);
@@ -94,6 +95,6 @@ public class HomeFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("ANDAR", numeroAndar);
         intent.putExtras(bundle);
-    }
+    }*/
 
 }
