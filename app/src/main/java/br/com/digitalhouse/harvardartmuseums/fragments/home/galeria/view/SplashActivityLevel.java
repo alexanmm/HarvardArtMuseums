@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums.view.splash;
+package br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import br.com.digitalhouse.harvardartmuseums.R;
-import br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.view.GaleriaActivity;
 
 public class SplashActivityLevel extends AppCompatActivity {
 

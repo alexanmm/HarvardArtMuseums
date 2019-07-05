@@ -19,7 +19,7 @@ import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
 import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.view.login.LoginActivity;
 import br.com.digitalhouse.harvardartmuseums.view.settings.SettingsActivity;
-import br.com.digitalhouse.harvardartmuseums.view.splash.SplashActivityLevel;
+import br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.view.SplashActivityLevel;
 
 public class Home extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -53,35 +53,30 @@ public class Home extends AppCompatActivity implements BottomNavigationView.OnNa
                 AndarOnClick("1");
             }
         });
-
         andar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AndarOnClick("2");
             }
         });
-
         andar3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AndarOnClick("3");
             }
         });
-
         andar4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AndarOnClick("4");
             }
         });
-
         andar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AndarOnClick("5");
             }
         });
-
     }
 
     private void AndarOnClick(String andarEscolhido) {

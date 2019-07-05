@@ -19,7 +19,7 @@
         <activity android:name=".fragments.home.Home" />
         <activity android:name=".view.login.LoginActivity" />
         <activity android:name=".view.login.CadastroLoginActivity" />
-        <activity android:name=".view.splash.SplashActivityLevel" />
+        <activity android:name=".fragments.home.galeria.view.SplashActivityLevel" />
         <activity android:name=".fragments.home.LevelActivity" />
         <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
