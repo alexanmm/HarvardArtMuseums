@@ -11,16 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.base.BaseActivity"></activity>
-        <activity android:name=".fragments.home.DetalheDaObraActivity" />
+        <activity android:name=".view.base.BaseActivity" />
         <activity android:name=".fragments.game.GameControlsActivity" />
-        <activity android:name=".fragments.home.galeria.view.GaleriaActivity" />
         <activity android:name=".view.settings.SettingsActivity" />
-        <activity android:name=".fragments.home.Home" />
         <activity android:name=".view.login.LoginActivity" />
         <activity android:name=".view.login.CadastroLoginActivity" />
-        <activity android:name=".fragments.home.galeria.view.SplashActivityLevel" />
-        <activity android:name=".fragments.home.LevelActivity" />
         <activity android:name=".view.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

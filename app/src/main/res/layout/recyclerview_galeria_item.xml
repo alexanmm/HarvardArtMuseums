@@ -11,159 +11,141 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewAndarAtual"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imageViewImagemObra"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorPrimary"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginBottom="1dp"
-            android:text="0"
-            android:visibility="invisible"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewImagemObra">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/calendarsearch" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/download" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/sharevariant" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/googletranslate" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/ic_volume_up_black_24dp" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/heartoutline" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewNomeObra"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Nome da Obra"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <TextView
+            android:id="@+id/textViewDescricaoObra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Descrição da Obra"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textViewDescricaoObra"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imageViewImagemObra"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/colorPrimary"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewImagemObra">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="8dp">
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/star" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/star" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/star" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/star" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/star" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:gravity="end"
-            android:layout_marginTop="8dp">
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:src="@drawable/calendarsearch" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/download" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/sharevariant" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/googletranslate" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/ic_volume_up_black_24dp" />
-
-            <ImageView
-                android:layout_width="@dimen/galeria_obra_icon"
-                android:layout_height="@dimen/galeria_obra_icon"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:src="@drawable/heartoutline" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textViewNomeObra"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_goneMarginRight="16dp"
-        android:text="Nome da Obra"
-        android:textSize="24sp"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <TextView
-        android:id="@+id/textViewDescricaoObra"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:layout_goneMarginRight="16dp"
-        android:text="Descrição da Obra"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewNomeObra" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewNomeObra" />
 
     </android.support.constraint.ConstraintLayout>
 

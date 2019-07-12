@@ -14,7 +14,6 @@ import android.widget.Toast;
 import java.util.Objects;
 
 import br.com.digitalhouse.harvardartmuseums.R;
-import br.com.digitalhouse.harvardartmuseums.fragments.home.Home;
 import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
 
 public class CadastroLoginActivity extends AppCompatActivity {

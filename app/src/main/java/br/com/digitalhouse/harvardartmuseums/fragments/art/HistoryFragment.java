@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.fragmentos;
+package br.com.digitalhouse.harvardartmuseums.fragments.art;
 
 
 import android.os.Bundle;
@@ -12,10 +12,11 @@ import br.com.digitalhouse.harvardartmuseums.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ObraFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
+    private View convertView;
 
-    public ObraFragment() {
+    public HistoryFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +25,11 @@ public class ObraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_obra, container, false);
+        if (convertView == null){
+            convertView = inflater.inflate(R.layout.fragment_history, container, false);
+        }
+
+        return convertView;
     }
 
 }

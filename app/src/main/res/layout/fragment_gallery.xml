@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.home.Home">
+    tools:context=".fragments.gallery.GalleryFragment">
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_home"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/galleryRecyclerViewer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/recyclerview_galeria_item"/>
 </android.support.constraint.ConstraintLayout>
