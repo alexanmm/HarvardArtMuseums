@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.adapter;
+package br.com.digitalhouse.harvardartmuseums.adapters;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

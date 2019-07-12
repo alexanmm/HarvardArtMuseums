@@ -11,16 +11,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.fragments.art.ArtDetailFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.events.EventFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.favorite.FavoriteFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.game.GameFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.gallery.GalleryFragment;
+import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
+import br.com.digitalhouse.harvardartmuseums.model.Obra;
 import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.HomeFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
 import br.com.digitalhouse.harvardartmuseums.view.settings.SettingsActivity;
 import br.com.digitalhouse.harvardartmuseums.view.login.LoginActivity;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements Comunicator {
 
     public Toolbar toolbar;
 
@@ -123,4 +127,45 @@ public class BaseActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void sendMessageToFragments(String message) {
+        Bundle bundle = new Bundle();
+        bundle.putString("MESSAGE", message);
+
+        //Troca o título da Base Activity de acordo com o andar escolhido
+        switch (message) {
+            case "0":
+                toolbar.setTitle("Lower Level");
+                break;
+            case "1":
+                toolbar.setTitle("First Level");
+                break;
+            case "2":
+                toolbar.setTitle("Second Level");
+                break;
+            case "3":
+                toolbar.setTitle("Third Level");
+                break;
+            case "4":
+                toolbar.setTitle("Fourth Level");
+                break;
+            case "5":
+                toolbar.setTitle("Fifth Level");
+                break;
+        }
+
+        Fragment galleryFragment = new GalleryFragment();
+        galleryFragment.setArguments(bundle);
+        replaceFragment(galleryFragment);
+    }
+
+    @Override
+    public void sendArtToFragments(Obra obra) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("OBRA", obra);
+
+        Fragment artDetailFragment = new ArtDetailFragment();
+        artDetailFragment.setArguments(bundle);
+        replaceFragment(artDetailFragment);
+    }
 }

@@ -1,5 +1,6 @@
 package br.com.digitalhouse.harvardartmuseums.fragments.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
-import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
+import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
 
 public class HomeFragment extends Fragment {
+
+    private Comunicator comunicator;
 
     private ImageView subsolo;
     private ImageView andar1;
@@ -24,47 +27,62 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            comunicator = (Comunicator) context;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         initViews(view);
 
-/*        subsolo.setOnClickListener(new View.OnClickListener() {
+
+        subsolo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((BaseActivity) getActivity()).replaceFragment();
+                comunicator.sendMessageToFragments("0");
+                //######################################### duvida #################################//
+                /*((BaseActivity) getActivity()).sendMessageToFragments("0");*/
+                //######################################### duvida #################################//
             }
         });
         andar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("1");
+                comunicator.sendMessageToFragments("1");
             }
         });
         andar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("2");
+                comunicator.sendMessageToFragments("2");
             }
         });
         andar3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("3");
+                comunicator.sendMessageToFragments("3");
             }
         });
         andar4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("4");
+                comunicator.sendMessageToFragments("4");
             }
         });
         andar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                replaceFragment("5");
+                comunicator.sendMessageToFragments("5");
             }
-        });*/
+        });
 
         return view;
     }
@@ -77,4 +95,5 @@ public class HomeFragment extends Fragment {
         andar4 = view.findViewById(R.id.imageViewAndar4);
         andar5 = view.findViewById(R.id.imageViewAndar5);
     }
+
 }

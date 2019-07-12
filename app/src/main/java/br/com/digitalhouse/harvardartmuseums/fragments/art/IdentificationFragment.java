@@ -1,4 +1,4 @@
-package br.com.digitalhouse.harvardartmuseums.fragments.home.galeria.fragmentos;
+package br.com.digitalhouse.harvardartmuseums.fragments.art;
 
 
 import android.os.Bundle;
