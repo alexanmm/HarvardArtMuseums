@@ -25,6 +25,7 @@ public class ArtDetailFragment extends Fragment {
     private ViewPageAdapter adapter;
     private ArrayList<Fragment> arrayFragmentos;
     private ArrayList<String> arrayTitulos;
+    private Obra obra;
 
     public ArtDetailFragment() {
         // Required empty public constructor
@@ -40,7 +41,7 @@ public class ArtDetailFragment extends Fragment {
 
         //Parte superior do Fragmento
         if (getArguments() != null) {
-            Obra obra = getArguments().getParcelable("OBRA");
+            obra = getArguments().getParcelable("OBRA");
             if (obra != null) {
                 textViewNomeObra.setText(obra.getNomeObra());
                 textViewDescricaoObra.setText(obra.getDescricaoObra());
@@ -58,9 +59,9 @@ public class ArtDetailFragment extends Fragment {
 
     private void CarregarFragmentos() {
         arrayFragmentos = new ArrayList<>();
-        arrayFragmentos.add(new IdentificationFragment());
-        arrayFragmentos.add(new DescriptionsFragment());
-        arrayFragmentos.add(new HistoryFragment());
+        arrayFragmentos.add(IdentificationFragment.newInstance(obra));
+        arrayFragmentos.add(DescriptionsFragment.newInstance(obra));
+        arrayFragmentos.add(HistoryFragment.newInstance(obra));
     }
 
     private void CarregarTitulos() {

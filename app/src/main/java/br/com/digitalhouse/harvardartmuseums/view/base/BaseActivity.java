@@ -17,6 +17,7 @@ import br.com.digitalhouse.harvardartmuseums.fragments.favorite.FavoriteFragment
 import br.com.digitalhouse.harvardartmuseums.fragments.game.GameFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.gallery.GalleryFragment;
 import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
+import br.com.digitalhouse.harvardartmuseums.model.Event;
 import br.com.digitalhouse.harvardartmuseums.model.Obra;
 import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.HomeFragment;
