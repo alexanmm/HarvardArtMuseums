@@ -48,9 +48,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 comunicator.sendMessageToFragments("0");
-                //######################################### duvida #################################//
-                /*((BaseActivity) getActivity()).sendMessageToFragments("0");*/
-                //######################################### duvida #################################//
             }
         });
         andar1.setOnClickListener(new View.OnClickListener() {

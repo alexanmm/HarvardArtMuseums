@@ -6,30 +6,40 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.model.Obra;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HistoryFragment extends Fragment {
 
-    private View convertView;
+    private static final String OBRA = "obra";
+    private Obra obra;
 
     public HistoryFragment() {
         // Required empty public constructor
     }
 
+    public static HistoryFragment newInstance(Obra obra) {
+        Bundle args = new Bundle();
+        args.putParcelable(OBRA, obra);
+
+        HistoryFragment fragment = new HistoryFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        if (convertView == null){
-            convertView = inflater.inflate(R.layout.fragment_history, container, false);
-        }
+        obra = getArguments().getParcelable(OBRA);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
 
-        return convertView;
+        TextView titulo = view.findViewById(R.id.textViewIdentification);
+        titulo.setText(obra.getNomeObra());
+
+        return view;
     }
 
 }
