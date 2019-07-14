@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerObra"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tlTab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewNomeObra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Nome da Obra"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDescricaoObra"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Descrição da Obra"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNomeObra" />
+
+            <ImageView
+                android:id="@+id/imageViewImagemObra"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoObra"
+                app:srcCompat="@color/colorPrimary" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/star" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/star" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/star" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/star" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/star" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="end">
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:src="@drawable/calendarsearch" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/download" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/sharevariant" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/googletranslate" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/ic_volume_up_black_24dp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/galeria_obra_icon"
+                        android:layout_height="@dimen/galeria_obra_icon"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/heartoutline" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6864E0"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            app:layout_constraintBottom_toTopOf="@+id/vpConteudo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/containerObra"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@android:color/background_dark"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#FFFFFF"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:tabTextColor="?attr/colorButtonNormal" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpConteudo"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/tlTab"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
