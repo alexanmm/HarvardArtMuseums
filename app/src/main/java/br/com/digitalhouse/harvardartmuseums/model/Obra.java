@@ -8,15 +8,17 @@ public class Obra implements Parcelable {
     private String nomeObra;
     private String descricaoObra;
     private String andarObra;
+    private boolean isFavorite;
 
     public Obra() {
     }
 
-    public Obra(int imagemObra, String nomeObra, String descricaoObra,String andarObra) {
+    public Obra(int imagemObra, String nomeObra, String descricaoObra, String andarObra, boolean isFavorite) {
         this.imagemObra = imagemObra;
         this.nomeObra = nomeObra;
         this.descricaoObra = descricaoObra;
         this.andarObra = andarObra;
+        this.isFavorite = isFavorite;
     }
 
     protected Obra(Parcel in) {
@@ -24,6 +26,7 @@ public class Obra implements Parcelable {
         nomeObra = in.readString();
         descricaoObra = in.readString();
         andarObra = in.readString();
+        isFavorite = in.readByte() != 0;
     }
 
     public static final Creator<Obra> CREATOR = new Creator<Obra>() {
@@ -37,14 +40,6 @@ public class Obra implements Parcelable {
             return new Obra[size];
         }
     };
-
-    public String getAndarObra() {
-        return andarObra;
-    }
-
-    public void setAndarObra(String andarObra) {
-        this.andarObra = andarObra;
-    }
 
     public int getImagemObra() {
         return imagemObra;
@@ -70,6 +65,22 @@ public class Obra implements Parcelable {
         this.descricaoObra = descricaoObra;
     }
 
+    public String getAndarObra() {
+        return andarObra;
+    }
+
+    public void setAndarObra(String andarObra) {
+        this.andarObra = andarObra;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -81,5 +92,6 @@ public class Obra implements Parcelable {
         dest.writeString(nomeObra);
         dest.writeString(descricaoObra);
         dest.writeString(andarObra);
+        dest.writeByte((byte) (isFavorite ? 1 : 0));
     }
 }

@@ -64,46 +64,46 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
         List<Obra> obras = new ArrayList<>();
         switch (andar) {
             case "0":
-                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0"));
-                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0"));
-                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0"));
-                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0"));
-                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0"));
+                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0", true));
+                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0", false));
+                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0", false));
+                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0", false));
+                obras.add(new Obra(R.drawable.obra1, "Rebecca Horn", "Flying Books Under Black  Rain Painting Sculpture", "0", false));
                 break;
             case "1":
-                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1"));
-                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1"));
-                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1"));
-                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1"));
-                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1"));
+                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1", true));
+                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1", false));
+                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1", false));
+                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1", false));
+                obras.add(new Obra(R.drawable.obra2, "Rebrega Corn", "Flying Books On The Table", "1", false));
                 break;
             case "2":
-                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2"));
-                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2"));
-                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2"));
-                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2"));
-                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2"));
+                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2", true));
+                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2", false));
+                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2", false));
+                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2", false));
+                obras.add(new Obra(R.drawable.obra2, "Reboga Chorn", "Flying Cooks On The Wall", "2", false));
                 break;
             case "3":
-                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3"));
-                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3"));
-                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3"));
-                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3"));
-                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3"));
+                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3", true));
+                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3", false));
+                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3", false));
+                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3", false));
+                obras.add(new Obra(R.drawable.obra1, "Refoga Porn", "Flying Coollers On The Ball", "3", false));
                 break;
             case "4":
-                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4"));
-                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4"));
-                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4"));
-                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4"));
-                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4"));
+                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4", true));
+                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4", false));
+                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4", false));
+                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4", false));
+                obras.add(new Obra(R.drawable.obra2, "Retrata Born", "Changing Roads On The Call", "4", false));
                 break;
             case "5":
-                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5"));
-                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5"));
-                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5"));
-                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5"));
-                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5"));
+                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5", true));
+                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5", false));
+                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5", false));
+                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5", false));
+                obras.add(new Obra(R.drawable.obra2, "Relax Worn", "Relaxing And Goose", "5", false));
                 break;
         }
         return obras;
