@@ -3,6 +3,7 @@ package br.com.digitalhouse.harvardartmuseums.adapters;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +36,28 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewGalleryAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final RecyclerViewGalleryAdapter.ViewHolder viewHolder, int i) {
         final Obra obra = obras.get(i);
         viewHolder.bind(obra);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onClick(obra);
+            }
+        });
+
+        viewHolder.imageViewFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Se for favoirito muda a imagem
+                if (obra.isFavorite()){
+                    viewHolder.imageViewFavorite.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+                }else {
+                    viewHolder.imageViewFavorite.setImageResource(R.drawable.ic_favorite_red_24dp);
+                }
+
+                // configura um novo valor para o favorito
+                obra.setFavorite(!obra.isFavorite());
             }
         });
     }
@@ -55,18 +71,23 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         private ImageView imageViewImagemObra;
         private TextView textViewNomeObra;
         private TextView textViewDescricaoObra;
+        private ImageView imageViewFavorite;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageViewImagemObra = itemView.findViewById(R.id.imageViewImagemObra);
             textViewNomeObra = itemView.findViewById(R.id.textViewNomeObra);
             textViewDescricaoObra = itemView.findViewById(R.id.textViewDescricaoObra);
+            imageViewFavorite = itemView.findViewById(R.id.imageViewFavorite);
         }
 
         public void bind(Obra obra) {
             imageViewImagemObra.setImageDrawable(ContextCompat.getDrawable(imageViewImagemObra.getContext(), obra.getImagemObra()));
             textViewNomeObra.setText(obra.getNomeObra());
             textViewDescricaoObra.setText(obra.getDescricaoObra());
+            if(obra.isFavorite()) {
+                imageViewFavorite.setImageDrawable(ContextCompat.getDrawable(imageViewFavorite.getContext(), R.drawable.ic_favorite_red_24dp));
+            }
         }
     }
 }

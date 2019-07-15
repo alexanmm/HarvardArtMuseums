@@ -32,7 +32,7 @@
             android:text="Event Date"
             android:textColor="#4BB623"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewTranslate"
             app:layout_constraintStart_toEndOf="@+id/imageViewThumbnail"
             app:layout_constraintTop_toTopOf="@+id/imageViewThumbnail" />
 
@@ -107,8 +107,8 @@
 
         <ImageView
             android:id="@+id/imageViewTranslate"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/galeria_obra_icon"
+            android:layout_height="@dimen/galeria_obra_icon"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toStartOf="@+id/imageViewSound"
@@ -117,8 +117,8 @@
 
         <ImageView
             android:id="@+id/imageViewSound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/galeria_obra_icon"
+            android:layout_height="@dimen/galeria_obra_icon"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/ic_volume_up_black_24dp"
@@ -127,8 +127,8 @@
 
         <ImageView
             android:id="@+id/imageViewAddCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/galeria_obra_icon"
+            android:layout_height="@dimen/galeria_obra_icon"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/ic_event_black_24dp"

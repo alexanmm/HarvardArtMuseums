@@ -152,7 +152,7 @@
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
-                        android:src="@drawable/heartoutline" />
+                        android:src="@drawable/ic_favorite_border_black_24dp" />
 
                 </LinearLayout>
 
