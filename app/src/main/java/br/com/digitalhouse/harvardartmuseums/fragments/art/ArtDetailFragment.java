@@ -38,6 +38,7 @@ public class ArtDetailFragment extends Fragment {
         TextView textViewNomeObra = view.findViewById(R.id.textViewNomeObra);
         TextView textViewDescricaoObra = view.findViewById(R.id.textViewDescricaoObra);
         ImageView imageViewImagemObra = view.findViewById(R.id.imageViewImagemObra);
+        final ImageView imageViewFavorite = view.findViewById(R.id.imageViewFavorite);
 
         //Parte superior do Fragmento
         if (getArguments() != null) {
@@ -46,6 +47,24 @@ public class ArtDetailFragment extends Fragment {
                 textViewNomeObra.setText(obra.getNomeObra());
                 textViewDescricaoObra.setText(obra.getDescricaoObra());
                 imageViewImagemObra.setImageDrawable(ContextCompat.getDrawable(imageViewImagemObra.getContext(), obra.getImagemObra()));
+                if(obra.isFavorite()) {
+                    imageViewFavorite.setImageDrawable(ContextCompat.getDrawable(imageViewFavorite.getContext(), R.drawable.ic_favorite_red_24dp));
+                }
+
+                imageViewFavorite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Se for favoirito muda a imagem
+                        if (obra.isFavorite()){
+                            imageViewFavorite.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+                        }else {
+                            imageViewFavorite.setImageResource(R.drawable.ic_favorite_red_24dp);
+                        }
+
+                        // configura um novo valor para o favorito
+                        obra.setFavorite(!obra.isFavorite());
+                    }
+                });
             }
         }
 

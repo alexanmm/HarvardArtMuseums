@@ -148,6 +148,7 @@
                         android:src="@drawable/ic_volume_up_black_24dp" />
 
                     <ImageView
+                        android:id="@+id/imageViewFavorite"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
