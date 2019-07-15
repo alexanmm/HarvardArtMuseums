@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageViewThumbnail"
             android:layout_width="75dp"
             android:layout_height="75dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="28dp"
             android:background="@color/colorPrimary"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,9 +34,10 @@
             android:text="Event Date"
             android:textColor="#4BB623"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/imageView4"
             app:layout_constraintStart_toEndOf="@+id/imageViewThumbnail"
-            app:layout_constraintTop_toTopOf="@+id/imageViewThumbnail" />
+            app:layout_constraintTop_toTopOf="@+id/imageViewThumbnail"
+            tools:ignore="UnknownId" />
 
         <TextView
             android:id="@+id/textViewEventName"
@@ -106,36 +109,97 @@
             app:layout_constraintStart_toEndOf="@+id/imageViewThumbnail"
             app:layout_constraintTop_toBottomOf="@+id/textViewEventAddress2" />
 
-        <ImageView
-            android:id="@+id/imageViewTranslate"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewSound"
-            app:layout_constraintTop_toTopOf="@+id/imageViewSound"
-            app:srcCompat="@drawable/googletranslate" />
-
-        <ImageView
-            android:id="@+id/imageViewSound"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_volume_up_black_24dp"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewAddCalendar"
-            app:layout_constraintTop_toTopOf="@+id/imageViewAddCalendar" />
-
-        <ImageView
-            android:id="@+id/imageViewAddCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_event_black_24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageViewThumbnail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="99dp"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:src="@drawable/star" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="end">
+
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/sharevariant" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/googletranslate" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/ic_volume_up_black_24dp" />
+
+                <ImageView
+                    android:layout_width="@dimen/galeria_obra_icon"
+                    android:layout_height="@dimen/galeria_obra_icon"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:src="@drawable/heartoutline" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>
