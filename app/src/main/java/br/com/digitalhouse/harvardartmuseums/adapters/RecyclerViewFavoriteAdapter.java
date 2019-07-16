@@ -58,7 +58,7 @@ public class RecyclerViewFavoriteAdapter extends RecyclerView.Adapter<RecyclerVi
     public void removeItem(int position){
         obrasFavorties.get(position).setFavorite(false);
         obrasFavorties.remove(position);
-        notifyItemRemoved(position);
+        notifyDataSetChanged();
     }
 
     @Override
