@@ -1,15 +1,14 @@
 package br.com.digitalhouse.harvardartmuseums;
 
 
-import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import br.com.digitalhouse.harvardartmuseums.login.CadastroLoginActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import br.com.digitalhouse.harvardartmuseums.view.login.CadastroLoginActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
-            Button btnLogin =(Button) findViewById(R.id.BtnLogin);
-            btnLogin.setOnClickListener(new View.OnClickListener() {
+            Button button =(Button) findViewById(R.id.buttonSignIn);
+            Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

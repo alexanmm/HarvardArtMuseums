@@ -1,4 +1,58 @@
 <resources>
+    <string name="app_name">Harvard Art Museums</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password_6_or_more_characters">Password (6 or more characters</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="create_account_and_sign_in">Create account and Sign In</string>
+    <string name="sign_in_accept_policy_and_service_terms">Clicking Sign In, you accept the Harvard Art Museum User Agreement, Policy and Service Terms!</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Create account</string>
+    <string name="or">OR</string>
+    <string name="title_activity_favs">FavsActivity</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_information">Info</string>
+    <string name="menu_events">Events</string>
+    <string name="menu_favorites">Favorites</string>
+    <string name="menu_game">Game</string>
+    <string name="option_menu_settings">Settings</string>
+    <string name="option_menu_help">Help</string>
+    <string name="option_menu_log_out">Log out</string>
+    <string name="imagem">imagem</string>
+    <string name="choose_a_floor_to_visit_the_gallery">Choose a floor to visit the Gallery</string>
+    <string name="pessoas">pessoas</string>
+    <string name="borda">borda</string>
+    <string name="ss">SS</string>
+    <string name="andar1">Andar1</string>
+    <string name="andar2">Andar2</string>
+    <string name="andar3">Andar3</string>
+    <string name="andar4">Andar4</string>
+    <string name="andar5">Andar5</string>
+    <string name="obra1">obra1</string>
+    <string name="obra2">obra2</string>
+    <string name="share">share</string>
+    <string name="estrela4">estrela4</string>
+    <string name="translate">translate</string>
+    <string name="estrela5">estrela5</string>
+    <string name="download">download</string>
+    <string name="raster">raster</string>
+    <string name="rebecca_horn">Rebecca Horn</string>
+    <string name="favoritethis">favoritethis</string>
+    <string name="estrela2">estrela2</string>
+    <string name="estrela3">estrela3</string>
+    <string name="calendar">calendar</string>
+    <string name="estrela1">estrela1</string>
+    <string name="flying_books_under_black_rain_painting_sculpture">Flying Books Under Black Rain Painting Sculpture</string>
+    <string name="floorplan">Floor Plan</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="identification_title">Identification and Creation</string>
+    <string name="history_title">History</string>
+    <string name="descriptions_title">Descriptions</string>
     <string name="app_name">HarvardArtMuseums</string>
 
 

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.game.GameMainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:gravity="bottom">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Game options!"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:textColor="#000000"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:textColor="#000000"
+                        android:layout_gravity="bottom"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/personagem06" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/game_foto_inicial"
+                    android:scaleType="centerCrop"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#90ffffff"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_volume_up_black_24dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                        <Button
+                            android:id="@+id/btnVolumeOn"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="On"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                        <Button
+                            android:id="@+id/btnVolumeOff"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="Off"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="@dimen/lay_height"
+                            android:src="@drawable/ic_music_note_black_24dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                        <Button
+                            android:id="@+id/btnMusicOn"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="On"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                        <Button
+                            android:id="@+id/btnMusicOff"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="Off"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="@dimen/lay_height"
+                            android:src="@drawable/ic_control_point_black_24dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"/>
+
+                        <Button
+                            android:id="@+id/btnEasy"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="Easy"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                        <Button
+                            android:id="@+id/btnMedium"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="Medium"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                        <Button
+                            android:id="@+id/btnHard"
+                            android:layout_width="@dimen/lay_width"
+                            android:layout_height="@dimen/lay_height"
+                            android:hint="Hard"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#000000"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginStart="8dp"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+        app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
