@@ -13,9 +13,9 @@
         android:title="@string/menu_information" />
 
     <item
-        android:id="@+id/navigation_events"
+        android:id="@+id/navigation_exhibition"
         android:icon="@drawable/ic_events"
-        android:title="@string/menu_events" />
+        android:title="@string/menu_exhibition" />
 
     <item
         android:id="@+id/navigation_favorites"

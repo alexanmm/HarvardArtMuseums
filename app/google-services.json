@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "568768302869",
+    "firebase_url": "https://harvardartmuseums-3b643.firebaseio.com",
+    "project_id": "harvardartmuseums-3b643",
+    "storage_bucket": "harvardartmuseums-3b643.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568768302869:android:cf06f304b391d5ca",
+        "android_client_info": {
+          "package_name": "br.com.digitalhouse.harvardartmuseums"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568768302869-vmus2ec3trm5m0k2kvah4i3tpd7bl74e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.digitalhouse.harvardartmuseums",
+            "certificate_hash": "c993feb3383791b1c0967e55fe74804cda48b9a5"
+          }
+        },
+        {
+          "client_id": "568768302869-achohrc5j47i8ehl965kcumtkg5m6dl0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6wSotz73Oj643Ow3TsWMnhxIbnyzL1NQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568768302869-achohrc5j47i8ehl965kcumtkg5m6dl0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

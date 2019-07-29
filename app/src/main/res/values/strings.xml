@@ -53,4 +53,6 @@
     <string name="identification_title">Identification and Creation</string>
     <string name="history_title">History</string>
     <string name="descriptions_title">Descriptions</string>
+    <string name="lines_detail">Lines detail</string>
+    <string name="menu_exhibition">Exhibition</string>
 </resources>

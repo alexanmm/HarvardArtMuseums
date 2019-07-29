@@ -1,23 +1,31 @@
 package br.com.digitalhouse.harvardartmuseums.view.base;
 
 import android.content.Intent;
+
 import androidx.annotation.NonNull;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.Menu;
 import android.view.MenuItem;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.fragments.art.ArtDetailFragment;
-import br.com.digitalhouse.harvardartmuseums.fragments.events.EventFragment;
-import br.com.digitalhouse.harvardartmuseums.fragments.favorite.FavoriteFragment;
-import br.com.digitalhouse.harvardartmuseums.fragments.game.GameFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.exhibition.ExhibitionFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.favorites.FavoritesFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.gallery.GalleryFragment;
+import br.com.digitalhouse.harvardartmuseums.fragments.game.GamePlayFragment;
 import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
-import br.com.digitalhouse.harvardartmuseums.model.Obra;
+import br.com.digitalhouse.harvardartmuseums.model.object.Object;
 import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.HomeFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
@@ -53,19 +61,49 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
     //Define o primeiro fragmento que será inflado no cointainer da BaseActivity
     private void initFirstFragment() {
         toolbar.setTitle("Home");
+
+        replaceFragment(new HomeFragment());
+
+/*
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, new HomeFragment())
                 .commit();
+*/
     }
 
     //Troca os fragmentos do container
     public void replaceFragment(Fragment fragment) {
+
+        try {
+
+            String TAG = fragment.getClass().toString();
+            String backStackName = fragment.getClass().getName();
+
+            FragmentManager manager = getSupportFragmentManager();
+
+            boolean fragmentPopped = manager.popBackStackImmediate(backStackName, 0);
+
+            if (!fragmentPopped && getSupportFragmentManager().findFragmentByTag(TAG) == null) {
+                final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.container, fragment, TAG);
+                ft.addToBackStack(backStackName);
+                ft.commit();
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+
+/*
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, fragment)
                 .addToBackStack("FRAGMENTS")
                 .commit();
+*/
     }
 
     //Define as ações de cada botão do NavigationBar
@@ -82,16 +120,16 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
                     replaceFragment(new InfoFragment());
                     toolbar.setTitle("Informations");
                     return true;
-                case R.id.navigation_events:
-                    replaceFragment(new EventFragment());
-                    toolbar.setTitle("Events");
+                case R.id.navigation_exhibition:
+                    replaceFragment(new ExhibitionFragment());
+                    toolbar.setTitle("Exhibition");
                     return true;
                 case R.id.navigation_favorites:
-                    replaceFragment(new FavoriteFragment());
+                    replaceFragment(new FavoritesFragment());
                     toolbar.setTitle("Favorites");
                     return true;
                 case R.id.navigation_game:
-                    replaceFragment(new GameFragment());
+                    replaceFragment(new GamePlayFragment());
                     toolbar.setTitle("Game");
                     return true;
             }
@@ -157,15 +195,29 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
         Fragment galleryFragment = new GalleryFragment();
         galleryFragment.setArguments(bundle);
         replaceFragment(galleryFragment);
+
     }
 
     @Override
-    public void sendArtToFragments(Obra obra) {
+    public void sendArtToFragments(Object object) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable("OBRA", obra);
+        bundle.putParcelable("OBRA", object);
 
         Fragment artDetailFragment = new ArtDetailFragment();
         artDetailFragment.setArguments(bundle);
+
+        //Adiciona o fragment detalhe para não sobregravar a lista de obras do fragment Home
         replaceFragment(artDetailFragment);
+
+    }
+
+    @Override
+    public void sendGameToPlayFragments() {
+
+        /*
+        Fragment gamePlayFragment = new GamePlayFragment();
+
+        replaceFragment(gamePlayFragment);
+        */
     }
 }

@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment {
 
         initViews(view);
 
-
         subsolo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
