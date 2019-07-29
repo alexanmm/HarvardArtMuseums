@@ -1,8 +1,12 @@
 package br.com.digitalhouse.harvardartmuseums.interfaces;
 
-import br.com.digitalhouse.harvardartmuseums.model.Obra;
+import br.com.digitalhouse.harvardartmuseums.model.object.Object;
 
 public interface Comunicator {
+
     void sendMessageToFragments(String message);
-    void sendArtToFragments(Obra obra);
+
+    void sendArtToFragments(Object object);
+
+    void sendGameToPlayFragments();
 }
