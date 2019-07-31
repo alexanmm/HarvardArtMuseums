@@ -52,8 +52,6 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
     public void update(List<Exhibition> exhibitionList, Context context) {
         this.exhibitionList.addAll(exhibitionList);
 
-        Toast.makeText(context, "Total de linhas: " + getItemCount(), Toast.LENGTH_SHORT).show();
-
         notifyDataSetChanged();
     }
 
@@ -89,8 +87,8 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
                 Picasso.get().setIndicatorsEnabled(true);
                 Picasso.get()
                         .load(exhibition.getPrimaryimageurl())
-                        .error(R.mipmap.ic_launcher)
-                        .placeholder(R.mipmap.ic_launcher)
+                        .error(R.drawable.image_logo_center)
+                        .placeholder(R.drawable.image_logo_center)
                         .into(imageViewExhibitionPrimaryImageurl);
             }
 

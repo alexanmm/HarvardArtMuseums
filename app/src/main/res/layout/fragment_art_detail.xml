@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -55,12 +55,12 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
+                android:src="@drawable/image_logo_center"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoObra"
-                app:srcCompat="@color/colorPrimary" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoObra" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -113,18 +113,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:gravity="end">
-
-                    <ImageView
-                        android:layout_width="@dimen/galeria_obra_icon"
-                        android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/calendarsearch" />
-
-                    <ImageView
-                        android:layout_width="@dimen/galeria_obra_icon"
-                        android:layout_height="@dimen/galeria_obra_icon"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp"
-                        android:src="@drawable/download" />
 
                     <ImageView
                         android:layout_width="@dimen/galeria_obra_icon"
@@ -187,7 +175,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
 
-            app:layout_constraintTop_toBottomOf="@+id/tlTab"/>
+            app:layout_constraintTop_toBottomOf="@+id/tlTab" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

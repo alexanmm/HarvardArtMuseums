@@ -48,7 +48,6 @@ public class GamePlayFragment extends Fragment {
     private TextView textViewTopMessageTimeLabel;
     private LinearLayout containerGame;
     private Button buttonGamePlayAgain;
-    private Button buttonGamePlaySettings;
 
     private List<String> listaCartas = new ArrayList<>();
     private List<String> statusCartas = new ArrayList<>();
@@ -115,18 +114,13 @@ public class GamePlayFragment extends Fragment {
                         //Zera o nível e pontos do usuário
                         gameLevel = 1;
                         contadorPontos = 0;
+                        contadorAcertos = 0;
+                        tempoRestante = 0;
 
                         //Inicializa o tempo padrão para o nível 1
                         tempoLimite = 30;
                     }
                 }.start();
-
-            }
-        });
-
-        buttonGamePlaySettings.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
             }
         });
@@ -242,7 +236,6 @@ public class GamePlayFragment extends Fragment {
         containerGame = view.findViewById(R.id.containerGame);
 
         buttonGamePlayAgain = view.findViewById(R.id.buttonGamePlayAgain);
-        buttonGamePlaySettings = view.findViewById(R.id.buttonGamePlaySettings);
 
         containerGame.setVisibility(View.VISIBLE);
     }
@@ -341,6 +334,11 @@ public class GamePlayFragment extends Fragment {
 
                         //Aumenta o nível de dificuldade
                         gameLevel++;
+                        contadorAcertos = 0;
+
+                        if (tempoLimite > 0){
+                            tempoLimite--;
+                        }
                     }
 
                     //Cartas diferentes

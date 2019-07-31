@@ -180,8 +180,8 @@ public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerV
                 Picasso.get().setIndicatorsEnabled(true);
                 Picasso.get()
                         .load(favorites.getObjectGallery().getPrimaryimageurl())
-                        .error(R.mipmap.ic_launcher)
-                        .placeholder(R.mipmap.ic_launcher)
+                        .error(R.drawable.image_logo_center)
+                        .placeholder(R.drawable.image_logo_center)
                         .into(imageViewFavoritesItemObject);
             }
 
