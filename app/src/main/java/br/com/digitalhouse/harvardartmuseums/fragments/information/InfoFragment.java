@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 
@@ -14,6 +16,8 @@ import br.com.digitalhouse.harvardartmuseums.R;
  */
 public class InfoFragment extends Fragment {
 
+    private TextView textViewTopMessageChoose;
+    private ImageView imageViewTopMessage;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -23,8 +27,22 @@ public class InfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_info, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_info, container, false);
+
+        //Inicializa Views
+        initViews(view);
+
+        textViewTopMessageChoose.setText("Each click is an opportunity to interact with us!");
+        imageViewTopMessage.setImageDrawable(getResources().getDrawable(R.drawable.personagem07));
+
+        return view;
     }
 
+    public void initViews(View view) {
+
+        textViewTopMessageChoose = view.findViewById(R.id.textViewTopMessageChoose);
+        imageViewTopMessage = view.findViewById(R.id.imageViewTopMessage);
+
+    }
 }

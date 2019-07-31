@@ -1,6 +1,7 @@
 package br.com.digitalhouse.harvardartmuseums.fragments.art;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,9 @@ import java.util.ArrayList;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.adapters.ViewPageAdapter;
+import br.com.digitalhouse.harvardartmuseums.data.database.Database;
+import br.com.digitalhouse.harvardartmuseums.data.database.dao.FavoritesDAO;
+import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
 
 public class ArtDetailFragment extends Fragment {
@@ -55,8 +59,8 @@ public class ArtDetailFragment extends Fragment {
                     Picasso.get().setIndicatorsEnabled(true);
                     Picasso.get()
                             .load(object.getPrimaryimageurl())
-                            .error(R.mipmap.ic_launcher)
-                            .placeholder(R.mipmap.ic_launcher)
+                            .error(R.drawable.image_logo_center)
+                            .placeholder(R.drawable.image_logo_center)
                             .into(imageViewImagemObra);
                 }
 
@@ -76,6 +80,10 @@ public class ArtDetailFragment extends Fragment {
 
                         // configura um novo valor para o favorito
                         object.setFavorite(!object.isFavorite());
+
+                        //Atualiza tabela de favoritos
+                        atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
+
                     }
                 });
             }
@@ -102,11 +110,27 @@ public class ArtDetailFragment extends Fragment {
     }
 
     private void viewPagerComTabLayout(View view) {
+
         tabLayout = view.findViewById(R.id.tlTab);
         vpConteudo = view.findViewById(R.id.vpConteudo);
         adapter = new ViewPageAdapter(getChildFragmentManager(), arrayFragmentos, arrayTitulos);
         vpConteudo.setAdapter(adapter);
         tabLayout.setupWithViewPager(vpConteudo);
+    }
+
+    public void atualizaFavoritosUsuario(Context context, Object objectFavorites) {
+
+        FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
+
+        new Thread(() -> {
+
+            if (objectFavorites.getLoginUser() == null){
+                objectFavorites.setLoginUser("");
+            }
+
+            dao.deleteByUserObjectId(objectFavorites.getLoginUser(), objectFavorites.getObjectid());
+            dao.insert(new Favorites(objectFavorites));
+        }).start();
     }
 
 }

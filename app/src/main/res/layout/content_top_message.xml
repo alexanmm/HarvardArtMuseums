@@ -84,15 +84,6 @@
                     android:drawableTop="@drawable/play"
                     android:text="Play" />
 
-                <Button
-                    android:id="@+id/buttonGamePlaySettings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#80ffffff"
-                    android:drawableTop="@drawable/ic_game"
-                    android:text="Settings" />
-
             </LinearLayout>
 
         </LinearLayout>

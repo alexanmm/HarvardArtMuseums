@@ -150,7 +150,9 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     public void addObject(List<Object> objectList, Context context) {
         this.objectList.addAll(objectList);
 
-        //Toast.makeText(context, "Total de linhas: " + getItemCount(), Toast.LENGTH_SHORT).show();
+        //if (this.objectList.size() == 0 || this.objectList == null){
+            //Toast.makeText(context, "No gallery found for this floor ", Toast.LENGTH_SHORT).show();
+        //}
 
         notifyDataSetChanged();
     }
@@ -203,8 +205,8 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 Picasso.get().setIndicatorsEnabled(true);
                 Picasso.get()
                         .load(object.getPrimaryimageurl())
-                        .error(R.mipmap.ic_launcher)
-                        .placeholder(R.mipmap.ic_launcher)
+                        .error(R.drawable.image_logo_center)
+                        .placeholder(R.drawable.image_logo_center)
                         .into(imageViewImagemObra);
             }
         }

@@ -118,7 +118,7 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
                     return true;
                 case R.id.navigation_information:
                     replaceFragment(new InfoFragment());
-                    toolbar.setTitle("Informations");
+                    toolbar.setTitle("Information");
                     return true;
                 case R.id.navigation_exhibition:
                     replaceFragment(new ExhibitionFragment());
