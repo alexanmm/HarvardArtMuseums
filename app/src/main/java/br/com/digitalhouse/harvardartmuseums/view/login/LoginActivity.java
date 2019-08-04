@@ -21,7 +21,6 @@ public class LoginActivity extends AppCompatActivity {
     public Button buttonSignIn;
     private TextView textViewCreateAccount;
     private ImageView imageViewGoogle;
-    private ImageView imageViewFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,16 +62,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //Login pelo Facebook
-        imageViewFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // ->>>> Incluir neste ponto a chamada da Tela de login do Facebook
-
-            }
-        });
-
         //Login pelo Google
         imageViewGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewCreateAccount = findViewById(R.id.textViewCreateAccount);
-        imageViewFacebook = findViewById(R.id.imageViewFacebook);
         imageViewGoogle = findViewById(R.id.imageViewGoogle);
         buttonSignIn = findViewById(R.id.buttonSignIn);
     }
