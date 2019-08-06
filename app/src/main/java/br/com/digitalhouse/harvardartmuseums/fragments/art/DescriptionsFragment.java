@@ -50,29 +50,36 @@ public class DescriptionsFragment extends Fragment {
         object = getArguments().getParcelable(OBRA);
         View view = inflater.inflate(R.layout.fragment_descriptions, container, false);
 
-        try {
+        //Inicializa Views
+        initViews(view);
 
-            textViewDescriptionsTitle = view.findViewById(R.id.textViewDescriptionsTitle);
-            textViewDescriptionsClassification = view.findViewById(R.id.textViewDescriptionsClassification);
-            textViewDescriptionsMedium = view.findViewById(R.id.textViewDescriptionsMedium);
-            textViewDescriptionsProvenance = view.findViewById(R.id.textViewDescriptionsProvenance);
-            textViewDescriptionsCulture = view.findViewById(R.id.textViewDescriptionsCulture);
-            textViewDescriptionsDivision = view.findViewById(R.id.textViewDescriptionsDivision);
-            textViewDescriptionsDepartment = view.findViewById(R.id.textViewDescriptionsDepartment);
-            textViewDescriptionsDimensions = view.findViewById(R.id.textViewDescriptionsDimensions);
+        try {
 
             textViewDescriptionsClassification.setText("Classification: " + AppUtil.convString(object.getClassification()));
             textViewDescriptionsMedium.setText("Medium: " + AppUtil.convString(object.getMedium()));
             textViewDescriptionsProvenance.setText("Provenance: " + AppUtil.convString(object.getProvenance()));
             textViewDescriptionsCulture.setText("Culture: " + AppUtil.convString(object.getCulture()));
-            textViewDescriptionsDivision.setText("Division: "+ AppUtil.convString(object.getDivision()));
-            textViewDescriptionsDepartment.setText("Department: "+ AppUtil.convString(object.getDepartment()));
+            textViewDescriptionsDivision.setText("Division: " + AppUtil.convString(object.getDivision()));
+            textViewDescriptionsDepartment.setText("Department: " + AppUtil.convString(object.getDepartment()));
             textViewDescriptionsDimensions.setText("Dimensions: " + AppUtil.convString(object.getDimensions()));
 
-        } catch (Exception ex) {
+        } catch (
+                Exception ex) {
             ex.printStackTrace();
         }
 
         return view;
+    }
+
+    public void initViews(View view) {
+
+        textViewDescriptionsTitle = view.findViewById(R.id.textViewDescriptionsTitle);
+        textViewDescriptionsClassification = view.findViewById(R.id.textViewDescriptionsClassification);
+        textViewDescriptionsMedium = view.findViewById(R.id.textViewDescriptionsMedium);
+        textViewDescriptionsProvenance = view.findViewById(R.id.textViewDescriptionsProvenance);
+        textViewDescriptionsCulture = view.findViewById(R.id.textViewDescriptionsCulture);
+        textViewDescriptionsDivision = view.findViewById(R.id.textViewDescriptionsDivision);
+        textViewDescriptionsDepartment = view.findViewById(R.id.textViewDescriptionsDepartment);
+        textViewDescriptionsDimensions = view.findViewById(R.id.textViewDescriptionsDimensions);
     }
 }

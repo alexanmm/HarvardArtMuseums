@@ -1,1 +1,20 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/caches/build_file_checksums.ser
+/.idea/caches/gradle_models.ser
+/.idea/codeStyles/Project.xml
+/.idea/misc.xml
+.DS_Store
 /build
+/captures
+.externalNativeBuild
+google-services.json
+DH Harvard Art Museums-cb9eb49832c5.json
+dh-harvard-art-museums-206849685201.json

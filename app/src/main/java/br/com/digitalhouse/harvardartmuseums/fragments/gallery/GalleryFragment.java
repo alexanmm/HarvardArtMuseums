@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,7 +130,7 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
 
         galleryViewModel = ViewModelProviders.of(this).get(GalleryViewModel.class);
         objectViewModel = ViewModelProviders.of(this).get(ObjectViewModel.class);
-        adapter = new RecyclerViewGalleryAdapter(objectList, this);
+        adapter = new RecyclerViewGalleryAdapter(objectList, this, getActivity());
 
         recyclerViewGallery.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerViewGallery.setAdapter(adapter);
@@ -170,4 +174,5 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
             }
         });
     }
+
 }

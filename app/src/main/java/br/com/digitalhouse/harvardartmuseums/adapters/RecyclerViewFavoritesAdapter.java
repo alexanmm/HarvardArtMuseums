@@ -10,8 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.digitalhouse.harvardartmuseums.R;
@@ -195,11 +201,46 @@ public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerV
 
     public void removeFavoritosUsuario(Context context, Object objectFavorites) {
 
+        /*
         FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
 
         new Thread(() -> {
             dao.deleteByUserObjectId(objectFavorites.getLoginUser(), objectFavorites.getObjectid());
         }).start();
+        */
+
+        //Instancia do firebase
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        //Referencia
+        DatabaseReference usuarioReference = databaseReference.child("tab_usuarios").child("usuario");
+        DatabaseReference objectReference = usuarioReference.child("favoritos").child(objectFavorites.getObjectid().toString());
+
+        //Adicionamos o listener para buscar o objeto gravado em favoritos
+        objectReference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                Object objectLocal = dataSnapshot.getValue(Object.class);
+
+                //Somente excluir a obra de favoritos se não houver classificação de estrelas
+                if (objectLocal.getCountStarsFavorites() == 0) {
+
+                    //Remove o registro da tabela
+                    objectReference.removeValue();
+
+                } else { //Somente atualizar o flag de favoritos como "falso"
+                    objectLocal.setFavorite(false);
+
+                    //Atualiza o registro na tabela
+                    objectReference.setValue(objectLocal);
+                }
+            }
+
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

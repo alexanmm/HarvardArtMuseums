@@ -6,23 +6,21 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/containerObra"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/tlTab"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textViewNomeObra"
-                android:layout_width="0dp"
+                android:id="@+id/textViewDetailNomeObra"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="Nome da Obra"
@@ -33,21 +31,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewDescricaoObra"
-                android:layout_width="0dp"
+                android:id="@+id/textViewDetailDescricaoObra"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:text="Descrição da Obra"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNomeObra" />
+                android:text="Descrição da Obra" />
 
             <ImageView
-                android:id="@+id/imageViewImagemObra"
-                android:layout_width="0dp"
+                android:id="@+id/imageViewDetailImagemObra"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
@@ -55,16 +50,12 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                android:src="@drawable/image_logo_center"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescricaoObra" />
+                android:src="@drawable/image_logo_center" />
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
@@ -82,29 +73,34 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/imageViewDetailStar1"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/star" />
+                        android:src="@drawable/ic_star_border_yellow_24dp" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailStar2"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/star" />
+                        android:src="@drawable/ic_star_border_yellow_24dp" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailStar3"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/star" />
+                        android:src="@drawable/ic_star_border_yellow_24dp" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailStar4"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/star" />
+                        android:src="@drawable/ic_star_border_yellow_24dp" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailStar5"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
-                        android:src="@drawable/star" />
+                        android:src="@drawable/ic_star_border_yellow_24dp" />
 
                 </LinearLayout>
 
@@ -115,6 +111,7 @@
                     android:gravity="end">
 
                     <ImageView
+                        android:id="@+id/imageViewDetailShare"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
@@ -122,6 +119,7 @@
                         android:src="@drawable/sharevariant" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailTranslate"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
@@ -129,6 +127,7 @@
                         android:src="@drawable/googletranslate" />
 
                     <ImageView
+                        android:id="@+id/imageViewDetailSpeak"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
@@ -136,7 +135,7 @@
                         android:src="@drawable/ic_volume_up_black_24dp" />
 
                     <ImageView
-                        android:id="@+id/imageViewFavorite"
+                        android:id="@+id/imageViewDetailFavorites"
                         android:layout_width="@dimen/galeria_obra_icon"
                         android:layout_height="@dimen/galeria_obra_icon"
                         android:layout_marginStart="8dp"
@@ -146,7 +145,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tlTab"
@@ -154,11 +153,6 @@
             android:layout_height="wrap_content"
             android:background="#6864E0"
             android:scrollbarAlwaysDrawVerticalTrack="false"
-            app:layout_constraintBottom_toTopOf="@+id/vpConteudo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/containerObra"
             app:tabGravity="fill"
             app:tabIndicatorColor="@android:color/background_dark"
             app:tabIndicatorHeight="4dp"
@@ -169,13 +163,8 @@
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vpConteudo"
-            android:layout_width="0dp"
-            android:layout_height="400dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
 
-            app:layout_constraintTop_toBottomOf="@+id/tlTab" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </ScrollView>

@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".view.base.BaseActivity" />
-        <activity android:name=".fragments.game.GameControlsActivity" />
         <activity android:name=".view.settings.SettingsActivity" />
         <activity android:name=".view.login.LoginActivity" />
         <activity android:name=".view.login.CadastroLoginActivity" />
@@ -25,9 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragments.game.GameMainActivity" />
-        <activity android:name=".fragments.game.GamePlay1Activity" />
-        <activity android:name=".fragments.game.GamePlay2Activity" />
         <activity android:name=".view.help.HelpActivity" />
     </application>
 
