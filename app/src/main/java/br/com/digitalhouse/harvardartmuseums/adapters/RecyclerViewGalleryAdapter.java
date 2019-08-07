@@ -1,6 +1,7 @@
 package br.com.digitalhouse.harvardartmuseums.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,21 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import br.com.digitalhouse.harvardartmuseums.R;
-import br.com.digitalhouse.harvardartmuseums.data.database.Database;
-import br.com.digitalhouse.harvardartmuseums.data.database.dao.FavoritesDAO;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewGalleryClickListener;
-import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.util.AppUtil;
 
 public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerViewGalleryAdapter.ViewHolder> {
@@ -33,6 +27,9 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     private List<Object> objectList;
     private RecyclerViewGalleryClickListener listener;
     private FragmentActivity activity;
+
+    //Dados gerais do usuário
+    UserData userData = new UserData();
 
     public RecyclerViewGalleryAdapter() {
     }
@@ -55,6 +52,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(@NonNull final RecyclerViewGalleryAdapter.ViewHolder viewHolder, int i) {
         final Object object = objectList.get(i);
         viewHolder.bind(object);
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +76,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 object.setCountStarsFavorites(1);
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -96,7 +94,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 object.setCountStarsFavorites(2);
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -114,7 +112,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 object.setCountStarsFavorites(3);
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -132,7 +130,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 object.setCountStarsFavorites(4);
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -150,7 +148,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 object.setCountStarsFavorites(5);
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -159,6 +157,24 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             @Override
             public void onClick(View v) {
 
+                //Acao de envio na intencao de chamar outra Actitivity
+                Intent intentCompartilhar = new Intent(Intent.ACTION_SEND);
+
+                //Envia texto no compartilhamento
+                intentCompartilhar.putExtra(Intent.EXTRA_TEXT, "Sharing:" + "\n" +
+                        "\nTitle: " + object.getTitle() + "\n" +
+                        "\nDescription: " + object.getVerificationleveldescription() + "\n" +
+                        "\nLink: " + object.getUrl());
+
+                //Tipo de compartilhamento
+                intentCompartilhar.setType("text/plain");
+
+                //Mostra os aplicativos disponiveis para compartilhamento de dados
+                Intent intentChooser = Intent.createChooser(
+                        intentCompartilhar, "Share type:");
+
+                //Start na Activity de compartilhamento
+                viewHolder.itemView.getContext().startActivity(intentChooser);
             }
         });
 
@@ -184,7 +200,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             @Override
             public void onClick(View v) {
 
-//Leitura de voz
+                //Leitura de voz
                 AppUtil.speakOut("Nome da Obra", viewHolder.textViewNomeObra.getText().toString(), v.getContext());
                 AppUtil.speakOut("Descrição da Obra", viewHolder.textViewDescricaoObra.getText().toString(), v.getContext());
             }
@@ -205,7 +221,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
     }
@@ -220,6 +236,23 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         this.objectList.addAll(objectList);
 
         notifyDataSetChanged();
+    }
+
+    public void modifyObject(Object objectLocal, Context context) {
+
+        try {
+            //Atualiza o registro com os dados adicionais dos favoritos
+            for (Object objectLine : this.objectList) {
+                if (objectLine.getObjectid().toString().equals(objectLocal.getObjectid().toString())) {
+                    objectLine.setFavorite(objectLocal.isFavorite());
+                    objectLine.setCountStarsFavorites(objectLocal.getCountStarsFavorites());
+                }
+            }
+
+            notifyDataSetChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -314,34 +347,6 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             }
 
         }
-
-    }
-
-    public void atualizaFavoritosUsuario(Context context, Object objectFavorites) {
-
-        /*FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
-
-        new Thread(() -> {
-
-            if (objectFavorites.getLoginUser() == null) {
-                objectFavorites.setLoginUser("");
-            }
-
-            dao.deleteByUserObjectId(objectFavorites.getLoginUser(), objectFavorites.getObjectid());
-            dao.insert(new Favorites(objectFavorites));
-
-        }).start();
-        */
-
-        //Atualiza favoritos do usuário no Firebase
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference usuarioReference = databaseReference.child("tab_usuarios");
-
-        usuarioReference
-                .child("usuario") //.child(objectFavorites.getLoginUser())
-                .child("favoritos")
-                .child(objectFavorites.getObjectid().toString())
-                .setValue(new Favorites(objectFavorites));
 
     }
 }

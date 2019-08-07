@@ -17,7 +17,7 @@ import static br.com.digitalhouse.harvardartmuseums.data.network.translation.Api
 
 public class TranslationRepository {
 
-    public Single<TranslationResponse> getTranslationApi(TextView textView, String textInput) {
+    public Single<TranslationResponse> getTranslationApi(TextView textView, String textInput, String idiomaDestino) {
 
         //Languages
         //EnUs - English (United States / International)
@@ -38,7 +38,7 @@ public class TranslationRepository {
 
             data.put("T", textInput);
             data.put("SL", "EnUs");
-            data.put("TL", "PtBr");
+            data.put("TL", idiomaDestino);
 
         } catch (Exception ex) {
             ex.printStackTrace();

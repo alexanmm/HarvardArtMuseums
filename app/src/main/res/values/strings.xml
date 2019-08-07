@@ -55,4 +55,17 @@
     <string name="descriptions_title">Descriptions</string>
     <string name="lines_detail">Lines detail</string>
     <string name="menu_exhibition">Exhibition</string>
+    <string name="language">Language</string>
+
+    <string-array name="arrayLanguages">
+        <item>EnUs - English (United States / International)</item>
+        <item>EsEs - Spanish</item>
+        <item>PtBr - Brazilian Portuguese</item>
+        <item>ZhCh - Chinese (Simplified)</item>
+        <item>DeAl - German</item>
+        <item>FrFr - French</item>
+        <item>RuRu - Russian</item>
+        <item>ArAr - Arabic</item>
+    </string-array>
+
 </resources>

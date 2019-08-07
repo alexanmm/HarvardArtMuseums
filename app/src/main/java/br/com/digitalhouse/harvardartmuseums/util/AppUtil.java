@@ -1,6 +1,7 @@
 package br.com.digitalhouse.harvardartmuseums.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.speech.tts.TextToSpeech;
@@ -16,6 +17,7 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.Locale;
 
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.viewmodel.TranslationViewModel;
 
 // Imports the Google Cloud client library
@@ -87,7 +89,9 @@ public class AppUtil {
 
         translationViewModel = ViewModelProviders.of(fragmentActivity).get(TranslationViewModel.class);
 
-        translationViewModel.getTranslation(textView, textOld);
+        UserData userData = new UserData();
+
+        translationViewModel.getTranslation(textView, textOld, userData.getLanguage().getTextoIdioma().substring(0,4));
 
         //Observable Error
         translationViewModel.getTranslationErrorLiveData().observe(fragmentActivity, throwable -> {
@@ -95,4 +99,5 @@ public class AppUtil {
         });
 
     }
+
 }

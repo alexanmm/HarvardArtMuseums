@@ -1,11 +1,6 @@
 package br.com.digitalhouse.harvardartmuseums.view.login;
 
-import android.content.Context;
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -22,7 +20,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonSignIn;
     private TextView textViewCreateAccount;
     private ImageView imageViewGoogle;
-    private ImageView imageViewFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,16 +103,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //Login pelo Facebook
-        imageViewFacebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // ->>>> Incluir neste ponto a chamada da Tela de login do Facebook
-
-            }
-        });
-
         //Login pelo Google
         imageViewGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +139,6 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewCreateAccount = findViewById(R.id.textViewCreateAccount);
-        imageViewFacebook = findViewById(R.id.imageViewFacebook);
         imageViewGoogle = findViewById(R.id.imageViewGoogle);
         buttonSignIn = findViewById(R.id.buttonSignIn);
     }
@@ -175,29 +161,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return true;
-    }
-
-    private void updateUI(FirebaseUser user) {
-        /*
-        hideProgressDialog();
-        if (user != null) {
-            mStatusTextView.setText(getString(R.string.emailpassword_status_fmt,
-                    user.getEmail(), user.isEmailVerified()));
-            mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-
-            findViewById(R.id.emailPasswordButtons).setVisibility(View.GONE);
-            findViewById(R.id.emailPasswordFields).setVisibility(View.GONE);
-            findViewById(R.id.signedInButtons).setVisibility(View.VISIBLE);
-
-            findViewById(R.id.verifyEmailButton).setEnabled(!user.isEmailVerified());
-        } else {
-            mStatusTextView.setText(R.string.signed_out);
-            mDetailTextView.setText(null);
-
-            findViewById(R.id.emailPasswordButtons).setVisibility(View.VISIBLE);
-            findViewById(R.id.emailPasswordFields).setVisibility(View.VISIBLE);
-            findViewById(R.id.signedInButtons).setVisibility(View.GONE);
-        }*/
     }
 
     private void signIn() {
@@ -263,5 +226,13 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    public void updateUI(FirebaseUser user) {
+
+        UserData userData = new UserData();
+        userData.setUser(user);
+
+        userData.inicializaDados();
     }
 }

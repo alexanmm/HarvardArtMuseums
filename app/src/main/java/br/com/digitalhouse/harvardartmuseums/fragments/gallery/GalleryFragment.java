@@ -27,8 +27,10 @@ import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.adapters.RecyclerViewGalleryAdapter;
 import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewGalleryClickListener;
+import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.gallery.Gallery;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.viewmodel.GalleryViewModel;
 import br.com.digitalhouse.harvardartmuseums.viewmodel.ObjectViewModel;
 
@@ -39,6 +41,8 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
     private RecyclerView recyclerViewGallery;
     private RecyclerViewGalleryAdapter adapter;
     private Comunicator comunicator;
+
+    private UserData userData = new UserData();
 
     private int pagina = 1; //Primeira página
 
@@ -111,6 +115,37 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
                 objectViewModel.getObjectLiveData().observe(this, objectListLocal -> {
 
                     adapter.addObject(objectListLocal, getContext());
+
+                    // *** Favoritos ***
+                    //Instancia do firebase
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+                    //Referencia
+                    DatabaseReference usuarioReference = databaseReference.child("tab_usuarios").child(userData.getUser().getUid());
+
+                    //Verifica se há favoritos para os itens
+                    for (Object objectLine: objectListLocal){
+
+                        DatabaseReference objectReference = usuarioReference.child("favoritos").child(objectLine.getObjectid().toString());
+
+                        //Adiciona o listener para buscar o objeto gravado em favoritos
+                        objectReference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                Favorites favoritesLocal = dataSnapshot.getValue(Favorites.class);
+
+                                if (favoritesLocal != null && favoritesLocal.getObjectGallery().getObjectid() != null){
+                                    adapter.modifyObject(favoritesLocal.getObjectGallery(), getContext());
+                                }
+
+                            }
+
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
 
                 });
 

@@ -43,17 +43,17 @@ public class TranslationViewModel extends AndroidViewModel {
         return errorLiveData;
     }
 
-    public void getTranslation(TextView textView, String textInput) {
+    public void getTranslation(TextView textView, String textInput, String idiomaDestino) {
 
         if (isNetworkConnected(getApplication())) {
-            getApiTranslation(textView, textInput);
+            getApiTranslation(textView, textInput, idiomaDestino);
         }
     }
 
-    private void getApiTranslation(TextView textView, String textInput) {
+    private void getApiTranslation(TextView textView, String textInput, String idiomaDestino) {
 
         disposable.add(
-                repository.getTranslationApi(textView, textInput)
+                repository.getTranslationApi(textView, textInput, idiomaDestino)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable1 -> loadingLiveData.setValue(true))

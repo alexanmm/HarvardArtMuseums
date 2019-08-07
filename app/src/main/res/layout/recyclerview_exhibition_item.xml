@@ -60,14 +60,6 @@
                     android:layout_marginRight="16dp"
                     android:src="@drawable/ic_volume_up_black_24dp" />
 
-                <ImageView
-                    android:id="@+id/imageViewExhibitionAddCalendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:src="@drawable/ic_event_black_24dp" />
-
             </LinearLayout>
 
             <TextView

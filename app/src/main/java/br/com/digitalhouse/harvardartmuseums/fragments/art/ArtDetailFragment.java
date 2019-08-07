@@ -2,6 +2,7 @@ package br.com.digitalhouse.harvardartmuseums.fragments.art;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import br.com.digitalhouse.harvardartmuseums.data.database.Database;
 import br.com.digitalhouse.harvardartmuseums.data.database.dao.FavoritesDAO;
 import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.util.AppUtil;
 
 public class ArtDetailFragment extends Fragment {
@@ -34,6 +36,8 @@ public class ArtDetailFragment extends Fragment {
     private ArrayList<Fragment> arrayFragmentos;
     private ArrayList<String> arrayTitulos;
     private Object object;
+
+    private UserData userData = new UserData();
 
     private TextView textViewDetailNomeObra;
     private TextView textViewDetailDescricaoObra;
@@ -76,9 +80,15 @@ public class ArtDetailFragment extends Fragment {
                             .into(imageViewDetailImagemObra);
                 }
 
+                //Atualiza na tela o botão de favoritos com a opção já selecionada
                 if (object.isFavorite()) {
                     imageViewDetailFavorites.setImageDrawable(ContextCompat.getDrawable(imageViewDetailFavorites.getContext(), R.drawable.ic_favorite_red_24dp));
                 }
+
+                //Atualiza na tela a quantidade de estrelas já selecionadas
+               if (object.getCountStarsFavorites() != 0){
+                   updateStars(object.getCountStarsFavorites());
+               }
 
                 imageViewDetailFavorites.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -93,56 +103,108 @@ public class ArtDetailFragment extends Fragment {
                         // configura um novo valor para o favorito
                         object.setFavorite(!object.isFavorite());
 
-                        //Atualiza tabela de favoritos
-                        atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
+                        //Atualiza a tabela de favoritos
+                        userData.atualizaFavoritosUsuario(getContext(), object);
                     }
                 });
             }
         }
 
+        //Cinco estrelas
+        //***
+        //Uma estrela
         imageViewDetailStar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Atualiza as estrelas na tela
                 updateStars(1);
+
+                // configura um novo valor para o favorito
+                object.setCountStarsFavorites(1);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
             }
         });
 
+        //Duas estrelas
         imageViewDetailStar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Atualiza as estrelas na tela
                 updateStars(2);
+
+                // configura um novo valor para o favorito
+                object.setCountStarsFavorites(2);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
             }
         });
 
+        //Tres estrelas
         imageViewDetailStar3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Atualiza as estrelas na tela
                 updateStars(3);
+
+                // configura um novo valor para o favorito
+                object.setCountStarsFavorites(3);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
             }
         });
 
+        //Quatro estrelas
         imageViewDetailStar4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Atualiza as estrelas na tela
                 updateStars(4);
+
+                // configura um novo valor para o favorito
+                object.setCountStarsFavorites(4);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
             }
         });
 
+        //Cinco estrelas
         imageViewDetailStar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Atualiza as estrelas na tela
                 updateStars(5);
+
+                // configura um novo valor para o favorito
+                object.setCountStarsFavorites(5);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
             }
         });
 
+        //Compartilhamento
         imageViewDetailShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Acao de envio na intencao de chamar outra Actitivity
+                Intent intentCompartilhar = new Intent(Intent.ACTION_SEND);
+
+                //Envia texto no compartilhamento
+                intentCompartilhar.putExtra(Intent.EXTRA_TEXT, "Sharing:" + "\n" +
+                        "\nTitle: " + object.getTitle() + "\n" +
+                        "\nDescription: " + object.getVerificationleveldescription() + "\n" +
+                        "\nLink: " + object.getUrl());
+
+                //Tipo de compartilhamento
+                intentCompartilhar.setType("text/plain");
+
+                //Mostra os aplicativos disponiveis para compartilhamento de dados
+                Intent intentChooser = Intent.createChooser(
+                        intentCompartilhar, "Share type:");
+
+                //Start na Activity de compartilhamento
+                getContext().startActivity(intentChooser);
 
             }
         });
@@ -161,8 +223,6 @@ public class ArtDetailFragment extends Fragment {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
 
@@ -179,7 +239,7 @@ public class ArtDetailFragment extends Fragment {
         });
 
         //Atualiza dados dos favoritos gravados anteriormente
-        buscaFavoritosUsuario(getActivity().getApplicationContext(), object);
+        //buscaFavoritosUsuario(getActivity().getApplicationContext(), object);
 
         //Parte inferior da Activity
         viewPagerComTabLayout(view);
@@ -223,6 +283,7 @@ public class ArtDetailFragment extends Fragment {
         tabLayout.setupWithViewPager(vpConteudo);
     }
 
+    /*
     public void atualizaFavoritosUsuario(Context context, Object objectFavorites) {
 
         FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
@@ -237,11 +298,9 @@ public class ArtDetailFragment extends Fragment {
             dao.insert(new Favorites(objectFavorites));
         }).start();
     }
+    */
 
     public void updateStars(int starCount) {
-
-        // configura um novo valor para o favorito
-        object.setCountStarsFavorites(starCount);
 
         if (starCount >= 1) {
             imageViewDetailStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
@@ -272,11 +331,9 @@ public class ArtDetailFragment extends Fragment {
         } else {
             imageViewDetailStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
         }
-
-        //Atualiza tabela de favoritos
-        atualizaFavoritosUsuario(getActivity().getApplicationContext(), object);
     }
 
+    /*
     public void buscaFavoritosUsuario(Context context, Object objectFavorites) {
 
         FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
@@ -297,4 +354,5 @@ public class ArtDetailFragment extends Fragment {
 
         }).start();
     }
+    */
 }

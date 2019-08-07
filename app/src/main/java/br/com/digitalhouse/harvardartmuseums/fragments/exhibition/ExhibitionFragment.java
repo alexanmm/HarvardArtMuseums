@@ -45,7 +45,6 @@ public class ExhibitionFragment extends Fragment implements RecyclerViewExhibiti
     private TextView textViewExhibitionBeginDate;
     private ImageView imageViewExhibitionTranslate;
     private ImageView imageViewExhibitionSound;
-    private ImageView imageViewExhibitionAddCalendar;
     private TextView textViewExhibitionTitle;
     private TextView textViewExhibitionPeopleDisplayName;
     private TextView textViewExhibitionEndDate;
@@ -108,7 +107,7 @@ public class ExhibitionFragment extends Fragment implements RecyclerViewExhibiti
         recyclerViewExhibition = view.findViewById(R.id.recyclerViewExhibition);
 
         exhibitionViewModel = ViewModelProviders.of(this).get(ExhibitionViewModel.class);
-        adapter = new RecyclerViewExhibitionAdapter(exhibitionList, this);
+        adapter = new RecyclerViewExhibitionAdapter(exhibitionList, this, getActivity());
 
         recyclerViewExhibition.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerViewExhibition.setAdapter(adapter);
@@ -118,7 +117,6 @@ public class ExhibitionFragment extends Fragment implements RecyclerViewExhibiti
         textViewExhibitionBeginDate = view.findViewById(R.id.textViewExhibitionBeginDate);
         imageViewExhibitionTranslate = view.findViewById(R.id.imageViewExhibitionTranslate);
         imageViewExhibitionSound = view.findViewById(R.id.imageViewExhibitionSound);
-        imageViewExhibitionAddCalendar = view.findViewById(R.id.imageViewExhibitionAddCalendar);
         textViewExhibitionTitle = view.findViewById(R.id.textViewExhibitionTitle);
         textViewExhibitionPeopleDisplayName = view.findViewById(R.id.textViewExhibitionPeopleDisplayName);
         textViewExhibitionEndDate = view.findViewById(R.id.textViewExhibitionEndDate);

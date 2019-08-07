@@ -1,22 +1,24 @@
 package br.com.digitalhouse.harvardartmuseums.view.settings;
 
-import android.content.SharedPreferences;
 import android.os.Build;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
 import android.view.View;
-import android.widget.SeekBar;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.Objects;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 
-public class SettingsActivity extends AppCompatActivity{
+public class SettingsActivity extends AppCompatActivity {
 
-    private SwitchCompat sound, notify;
-    boolean stateSound, stateNotify;
+    UserData userData = new UserData();
+
+    private Spinner spinnerSettingsLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,61 +37,35 @@ public class SettingsActivity extends AppCompatActivity{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
         }
 
-        final SharedPreferences preferences = getSharedPreferences("PREFS", 0);
-        stateSound = preferences.getBoolean("sound", false);
-        stateNotify = preferences.getBoolean("notify", false);
+        //Inicializa Views
+        initViews();
 
-        SeekBar seekBar = findViewById(R.id.seekBar);
-        sound = findViewById(R.id.sound);
-        notify = findViewById(R.id.notify);
+        //Inicializa com o idioma padrão do usuário
+        if (userData.getLanguage() != null) {
+            spinnerSettingsLanguage.setSelection(userData.getLanguage().getIdIdioma());
+        }
 
-        sound.setChecked(stateSound);
-        notify.setChecked(stateNotify);
-
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
+        //Ao mudar o idioma, atualiza dados do usuário
+        spinnerSettingsLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+                String[] listaIdiomas = getResources().getStringArray(R.array.arrayLanguages);
+
+                userData.gravaIdiomaUsuario(position, listaIdiomas[position]);
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
 
-        sound.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stateSound = !stateSound;
-                sound.setChecked(stateSound);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("sound", stateSound);
-                editor.apply();
-            }
-        });
-
-        notify.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                stateNotify = !stateNotify;
-                notify.setChecked(stateNotify);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("notify", stateNotify);
-                editor.apply();
-            }
-        });
     }
 
     //Este método é chamado no momento em que pressionamos a seta de voltar da toolbar
@@ -97,6 +73,13 @@ public class SettingsActivity extends AppCompatActivity{
     public boolean onSupportNavigateUp() {
         onBackPressed(); //Este método é o mesmo chamado no momento que apertamos o back na parte debaixo do celular...
         return true;
+    }
+
+    //Inicializa Views
+    public void initViews() {
+
+        spinnerSettingsLanguage = findViewById(R.id.spinnerSettingsLanguage);
+
     }
 }
 
