@@ -81,21 +81,10 @@
             app:layout_constraintStart_toStartOf="@+id/profile_image"
             app:layout_constraintTop_toTopOf="@+id/profile_image">
 
-            <ImageView
-                android:id="@+id/imageViewGoogle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginRight="16dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/icon_google" />
-
-            <ImageView
-                android:id="@+id/imageViewFacebook"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/icon_fb" />
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </LinearLayout>

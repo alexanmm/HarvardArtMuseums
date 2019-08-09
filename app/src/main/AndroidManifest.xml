@@ -26,6 +26,7 @@
         <activity android:name=".fragments.game.GamePlay1Activity" />
         <activity android:name=".fragments.game.GamePlay2Activity" />
         <activity android:name=".view.help.HelpActivity" />
+        <activity android:name=".view.login.PerfilActivity" />
     </application>
 
 </manifest>
