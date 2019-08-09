@@ -61,8 +61,6 @@ public class FavoritesFragment extends Fragment implements RecyclerViewFavorites
         //Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
 
-        ProgressBar progressBar = view.findViewById(R.id.progressBar);
-
         //Inicializa as Views
         initViews(view);
 
@@ -137,7 +135,7 @@ public class FavoritesFragment extends Fragment implements RecyclerViewFavorites
         recyclerViewFavorites = view.findViewById(R.id.recyclerViewFavorites);
 
         favoritesViewModel = ViewModelProviders.of(this).get(FavoritesViewModel.class);
-        adapter = new RecyclerViewFavoritesAdapter(favoritesList, this);
+        adapter = new RecyclerViewFavoritesAdapter(favoritesList, this, getActivity());
 
         recyclerViewFavorites.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerViewFavorites.setAdapter(adapter);

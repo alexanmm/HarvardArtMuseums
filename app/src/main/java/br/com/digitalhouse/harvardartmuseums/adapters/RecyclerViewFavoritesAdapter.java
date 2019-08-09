@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -18,18 +19,21 @@ import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewFavoritesClickListener;
 import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
+import br.com.digitalhouse.harvardartmuseums.util.AppUtil;
 
 public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerViewFavoritesAdapter.ViewHolder> {
 
     private List<Favorites> favoritesList;
     private RecyclerViewFavoritesClickListener listener;
+    private FragmentActivity activity;
 
     //Dados gerais do usuário
     UserData userData = new UserData();
 
-    public RecyclerViewFavoritesAdapter(List<Favorites> favoritesList, RecyclerViewFavoritesClickListener listener) {
+    public RecyclerViewFavoritesAdapter(List<Favorites> favoritesList, RecyclerViewFavoritesClickListener listener, FragmentActivity activity) {
         this.favoritesList = favoritesList;
         this.listener = listener;
+        this.activity = activity;
     }
 
     @NonNull
@@ -48,13 +52,6 @@ public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerV
             @Override
             public void onClick(View v) {
                 listener.onClick(favorites);
-            }
-        });
-
-        viewHolder.imageViewFavoritesStar5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
@@ -84,16 +81,32 @@ public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerV
             }
         });
 
+        //Google Tradutor
         viewHolder.imageViewFavoritesItemTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                //Tradução de texto
+                try {
+
+                    AppUtil.translateOut(viewHolder.textViewFavoritesItemObjectTitle, favorites.getObjectGallery().getTitle(), activity);
+                    AppUtil.translateOut(viewHolder.textViewFavoritesItemObjectDescription, favorites.getObjectGallery().getVerificationleveldescription(), activity);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
 
+        //Google Speak
         viewHolder.imageViewFavoritesItemSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Leitura de voz
+                AppUtil.speakOut("Nome da Obra", viewHolder.textViewFavoritesItemObjectTitle.getText().toString(), v.getContext());
+                AppUtil.speakOut("Descrição da Obra", viewHolder.textViewFavoritesItemObjectDescription.getText().toString(), v.getContext());
 
             }
         });
@@ -104,11 +117,11 @@ public class RecyclerViewFavoritesAdapter extends RecyclerView.Adapter<RecyclerV
             public void onClick(View v) {
 
                 //Somente remover efetivamente do Banco de Dados quando o favoritos não tiver estrelas
-                if (favorites.getObjectGallery().getCountStarsFavorites() == 0){
+                if (favorites.getObjectGallery().getCountStarsFavorites() == 0) {
                     //Remove o item no banco de dados
                     userData.removeFavoritosUsuario(v.getContext(), favorites.getObjectGallery());
 
-                } else{ //Atualiza Favoritos como "False"
+                } else { //Atualiza Favoritos como "False"
                     favorites.getObjectGallery().setFavorite(false);
                     userData.atualizaFavoritosUsuario(v.getContext(), favorites.getObjectGallery());
                 }

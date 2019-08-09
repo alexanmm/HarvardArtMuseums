@@ -1,5 +1,6 @@
 package br.com.digitalhouse.harvardartmuseums.view.login;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,9 +18,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,21 +37,22 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 14;
     private static final String TAG = "login";
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
 
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonSignIn;
     private TextView textViewCreateAccount;
-    private ImageView imageViewGoogle;
+    private SignInButton signInButtonGoogle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        initObjects();
+        //Inicializa Views
+        initViews();
 
         //Valida dados ao clicar no botão para Login
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
@@ -58,14 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                 //Login User
                 if (validaDadosLogin()) {
 
-                    firebaseAuth = FirebaseAuth.getInstance(); //Autenticação
-
                     Toast.makeText(v.getContext(),
                             "Login in progress...",
                             Toast.LENGTH_SHORT).show();
 
                     //Login do usuario
-                    firebaseAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
+                    mAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
 
                                 @Override
@@ -73,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                     if (task.isSuccessful()) { //Retorna true se o usuario for logado
                                         // Sign in success, update UI with the signed-in user's information
-                                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                                        FirebaseUser user = mAuth.getCurrentUser();
                                         updateUI(user);
 
                                         //Chamada da BaseActivity (Tela de Galeria)
@@ -83,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         Toast.makeText(v.getContext(),
-                                                "Authentication failed: " + task.getException(),
+                                                "User or Password invalid. " + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
 
                                         updateUI(null);
@@ -104,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //Login pelo Google
-        imageViewGoogle.setOnClickListener(new View.OnClickListener() {
+        signInButtonGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -118,18 +120,20 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
-    private void initObjects() {
+    //Inicializa Views
+    private void initViews() {
 
-        //Inicializa Objetos
-        firebaseAuth = FirebaseAuth.getInstance(); //Autenticação
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -139,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         textViewCreateAccount = findViewById(R.id.textViewCreateAccount);
-        imageViewGoogle = findViewById(R.id.imageViewGoogle);
+        signInButtonGoogle = findViewById(R.id.sign_in_button);
         buttonSignIn = findViewById(R.id.buttonSignIn);
     }
 
@@ -172,54 +176,53 @@ public class LoginActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            try {
 
-        }
-    }
+                Toast.makeText(getApplicationContext(),
+                        "Login in progress...",
+                        Toast.LENGTH_SHORT).show();
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Toast.makeText(getApplicationContext(),
+                        "Google sign in failed",
+                        Toast.LENGTH_SHORT).show();
 
-            // Signed in successfully, show authenticated UI.
-            //updateUI(account);
-
-            //Chamada da BaseActivity (Tela de Galeria)
-            Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
-            startActivity(intent);
-
-
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.d(TAG, "Authentication failed: " + e.getStatusCode());
-
-            updateUI(null);
+                Log.w(TAG, "Google sign in failed", e);
+                // ...
+            }
         }
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        //Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        firebaseAuth.signInWithCredential(credential)
+
+        mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+
+                            //Chamada da BaseActivity (Tela de Galeria)
+                            Intent intent = new Intent(LoginActivity.this, BaseActivity.class);
+                            startActivity(intent);
+
                         } else {
                             // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            //Snackbar.make(findViewById(R.id.main_layout), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication Failed", Toast.LENGTH_LONG).show();
                             updateUI(null);
                         }
 
@@ -230,9 +233,11 @@ public class LoginActivity extends AppCompatActivity {
 
     public void updateUI(FirebaseUser user) {
 
-        UserData userData = new UserData();
-        userData.setUser(user);
+        if (user != null) {
+            UserData userData = new UserData();
 
-        userData.inicializaDados();
+            userData.setUser(user);
+            userData.inicializaDados();
+        }
     }
 }
