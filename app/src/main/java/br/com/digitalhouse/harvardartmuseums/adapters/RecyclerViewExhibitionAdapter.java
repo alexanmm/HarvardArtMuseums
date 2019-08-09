@@ -1,6 +1,7 @@
 package br.com.digitalhouse.harvardartmuseums.adapters;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -18,15 +19,18 @@ import java.util.List;
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewExhibitionClickListener;
 import br.com.digitalhouse.harvardartmuseums.model.exhibition.Exhibition;
+import br.com.digitalhouse.harvardartmuseums.util.AppUtil;
 
 public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<RecyclerViewExhibitionAdapter.ViewHolder> {
 
     private List<Exhibition> exhibitionList;
     private RecyclerViewExhibitionClickListener listener;
+    private FragmentActivity activity;
 
-    public RecyclerViewExhibitionAdapter(List<Exhibition> exhibitionList, RecyclerViewExhibitionClickListener listener) {
+    public RecyclerViewExhibitionAdapter(List<Exhibition> exhibitionList, RecyclerViewExhibitionClickListener listener, FragmentActivity activity) {
         this.exhibitionList = exhibitionList;
         this.listener = listener;
+        this.activity = activity;
     }
 
     @NonNull
@@ -47,6 +51,33 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
                 listener.onClick(exhibition);
             }
         });
+
+        //Google Tradutor
+        viewHolder.imageViewExhibitionTranslate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Tradução de texto
+                try {
+
+                    AppUtil.translateOut(viewHolder.textViewExhibitionTitle, exhibition.getTitle(), activity);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        //Google Speak
+        viewHolder.imageViewExhibitionSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//Leitura de voz
+                AppUtil.speakOut("Evento", viewHolder.textViewExhibitionTitle.getText().toString(), v.getContext());
+            }
+        });
+
     }
 
     public void update(List<Exhibition> exhibitionList, Context context) {
@@ -68,6 +99,8 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
         private TextView textViewExhibitionPeopleDisplayName;
         private TextView textViewExhibitionEndDate;
         private TextView textViewExhibitionTexTileDescription;
+        private ImageView imageViewExhibitionTranslate;
+        private ImageView imageViewExhibitionSound;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,12 +111,14 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
             textViewExhibitionPeopleDisplayName = itemView.findViewById(R.id.textViewExhibitionPeopleDisplayName);
             textViewExhibitionEndDate = itemView.findViewById(R.id.textViewExhibitionEndDate);
             textViewExhibitionTexTileDescription = itemView.findViewById(R.id.textViewExhibitionTexTileDescription);
+            imageViewExhibitionTranslate = itemView.findViewById(R.id.imageViewExhibitionTranslate);
+            imageViewExhibitionSound = itemView.findViewById(R.id.imageViewExhibitionSound);
 
         }
 
         public void bind(Exhibition exhibition) {
 
-            if (exhibition.getPrimaryimageurl() != null){
+            if (exhibition.getPrimaryimageurl() != null) {
                 Picasso.get().setIndicatorsEnabled(true);
                 Picasso.get()
                         .load(exhibition.getPrimaryimageurl())
@@ -96,7 +131,7 @@ public class RecyclerViewExhibitionAdapter extends RecyclerView.Adapter<Recycler
             textViewExhibitionTitle.setText(exhibition.getTitle());
 
             //Busca a primeira linha com o nome do artista
-            if ( exhibition.getPeople().size() > 0){
+            if (exhibition.getPeople().size() > 0) {
                 textViewExhibitionPeopleDisplayName.setText(
                         exhibition.getPeople().get(0).getDisplayname());
             }

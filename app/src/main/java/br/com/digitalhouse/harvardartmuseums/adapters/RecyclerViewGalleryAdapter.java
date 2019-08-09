@@ -1,15 +1,15 @@
 package br.com.digitalhouse.harvardartmuseums.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -17,23 +17,27 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import br.com.digitalhouse.harvardartmuseums.R;
-import br.com.digitalhouse.harvardartmuseums.data.database.Database;
-import br.com.digitalhouse.harvardartmuseums.data.database.dao.FavoritesDAO;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewGalleryClickListener;
-import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
+import br.com.digitalhouse.harvardartmuseums.util.AppUtil;
 
 public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerViewGalleryAdapter.ViewHolder> {
 
     private List<Object> objectList;
     private RecyclerViewGalleryClickListener listener;
+    private FragmentActivity activity;
+
+    //Dados gerais do usuário
+    UserData userData = new UserData();
 
     public RecyclerViewGalleryAdapter() {
     }
 
-    public RecyclerViewGalleryAdapter(List<Object> objectList, RecyclerViewGalleryClickListener listener) {
+    public RecyclerViewGalleryAdapter(List<Object> objectList, RecyclerViewGalleryClickListener listener, FragmentActivity activity) {
         this.objectList = objectList;
         this.listener = listener;
+        this.activity = activity;
     }
 
     @NonNull
@@ -48,6 +52,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     public void onBindViewHolder(@NonNull final RecyclerViewGalleryAdapter.ViewHolder viewHolder, int i) {
         final Object object = objectList.get(i);
         viewHolder.bind(object);
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +66,17 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         viewHolder.imageViewGalleryStar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewHolder.imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar2.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar3.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar4.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
 
+                //Atualiza a quantidade de estrelas marcadas
+                object.setCountStarsFavorites(1);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -69,7 +84,17 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         viewHolder.imageViewGalleryStar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewHolder.imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar2.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar3.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar4.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
 
+                //Atualiza a quantidade de estrelas marcadas
+                object.setCountStarsFavorites(2);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -77,7 +102,17 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         viewHolder.imageViewGalleryStar3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewHolder.imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar2.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar3.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar4.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+                viewHolder.imageViewGalleryStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
 
+                //Atualiza a quantidade de estrelas marcadas
+                object.setCountStarsFavorites(3);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -85,7 +120,17 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         viewHolder.imageViewGalleryStar4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewHolder.imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar2.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar3.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar4.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
 
+                //Atualiza a quantidade de estrelas marcadas
+                object.setCountStarsFavorites(4);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -93,7 +138,17 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
         viewHolder.imageViewGalleryStar5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewHolder.imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar2.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar3.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar4.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+                viewHolder.imageViewGalleryStar5.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
 
+                //Atualiza a quantidade de estrelas marcadas
+                object.setCountStarsFavorites(5);
+
+                //Atualiza a tabela de favoritos
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
 
@@ -102,6 +157,24 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             @Override
             public void onClick(View v) {
 
+                //Acao de envio na intencao de chamar outra Actitivity
+                Intent intentCompartilhar = new Intent(Intent.ACTION_SEND);
+
+                //Envia texto no compartilhamento
+                intentCompartilhar.putExtra(Intent.EXTRA_TEXT, "Sharing:" + "\n" +
+                        "\nTitle: " + object.getTitle() + "\n" +
+                        "\nDescription: " + object.getVerificationleveldescription() + "\n" +
+                        "\nLink: " + object.getUrl());
+
+                //Tipo de compartilhamento
+                intentCompartilhar.setType("text/plain");
+
+                //Mostra os aplicativos disponiveis para compartilhamento de dados
+                Intent intentChooser = Intent.createChooser(
+                        intentCompartilhar, "Share type:");
+
+                //Start na Activity de compartilhamento
+                viewHolder.itemView.getContext().startActivity(intentChooser);
             }
         });
 
@@ -110,6 +183,15 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             @Override
             public void onClick(View v) {
 
+                //Tradução de texto
+                try {
+
+                    AppUtil.translateOut(viewHolder.textViewNomeObra, object.getTitle(), activity);
+                    AppUtil.translateOut(viewHolder.textViewDescricaoObra, object.getVerificationleveldescription(), activity);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -118,6 +200,9 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
             @Override
             public void onClick(View v) {
 
+                //Leitura de voz
+                AppUtil.speakOut("Nome da Obra", viewHolder.textViewNomeObra.getText().toString(), v.getContext());
+                AppUtil.speakOut("Descrição da Obra", viewHolder.textViewDescricaoObra.getText().toString(), v.getContext());
             }
         });
 
@@ -136,7 +221,7 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
 
                 //Atualiza a tabela de favoritos
-                atualizaFavoritosUsuario(v.getContext(), object);
+                userData.atualizaFavoritosUsuario(v.getContext(), object);
             }
         });
     }
@@ -150,11 +235,24 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
     public void addObject(List<Object> objectList, Context context) {
         this.objectList.addAll(objectList);
 
-        //if (this.objectList.size() == 0 || this.objectList == null){
-            //Toast.makeText(context, "No gallery found for this floor ", Toast.LENGTH_SHORT).show();
-        //}
-
         notifyDataSetChanged();
+    }
+
+    public void modifyObject(Object objectLocal, Context context) {
+
+        try {
+            //Atualiza o registro com os dados adicionais dos favoritos
+            for (Object objectLine : this.objectList) {
+                if (objectLine.getObjectid().toString().equals(objectLocal.getObjectid().toString())) {
+                    objectLine.setFavorite(objectLocal.isFavorite());
+                    objectLine.setCountStarsFavorites(objectLocal.getCountStarsFavorites());
+                }
+            }
+
+            notifyDataSetChanged();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -209,21 +307,46 @@ public class RecyclerViewGalleryAdapter extends RecyclerView.Adapter<RecyclerVie
                         .placeholder(R.drawable.image_logo_center)
                         .into(imageViewImagemObra);
             }
-        }
-    }
 
-    public void atualizaFavoritosUsuario(Context context, Object objectFavorites) {
-
-        FavoritesDAO dao = Database.getDatabase(context).favoritesDAO();
-
-        new Thread(() -> {
-
-            if (objectFavorites.getLoginUser() == null){
-                objectFavorites.setLoginUser("");
+            //Favoritos
+            if (object.isFavorite()) {
+                imageViewGalleryFavorites.setImageResource(R.drawable.ic_favorite_red_24dp);
+            } else {
+                imageViewGalleryFavorites.setImageResource(R.drawable.ic_favorite_border_black_24dp);
             }
 
-            dao.deleteByUserObjectId(objectFavorites.getLoginUser(), objectFavorites.getObjectid());
-            dao.insert(new Favorites(objectFavorites));
-        }).start();
+            //Quantidade de estrelas marcadas anteiormente
+            if (object.getCountStarsFavorites() >= 1) {
+                imageViewGalleryStar1.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+            } else {
+                imageViewGalleryStar1.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            }
+
+            if (object.getCountStarsFavorites() >= 2) {
+                imageViewGalleryStar2.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+            } else {
+                imageViewGalleryStar2.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            }
+
+            if (object.getCountStarsFavorites() >= 3) {
+                imageViewGalleryStar3.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+            } else {
+                imageViewGalleryStar3.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            }
+
+            if (object.getCountStarsFavorites() >= 4) {
+                imageViewGalleryStar4.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+            } else {
+                imageViewGalleryStar4.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            }
+
+            if (object.getCountStarsFavorites() >= 5) {
+                imageViewGalleryStar5.setImageResource(R.drawable.ic_star_fill_yellow_24dp);
+            } else {
+                imageViewGalleryStar5.setImageResource(R.drawable.ic_star_border_yellow_24dp);
+            }
+
+        }
+
     }
 }

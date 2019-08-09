@@ -1086,4 +1086,6 @@ public class Object implements Parcelable{
     public void setLoginUser(String loginUser) {
         this.loginUser = loginUser;
     }
+
+
 }

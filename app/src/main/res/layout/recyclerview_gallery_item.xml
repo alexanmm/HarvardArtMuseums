@@ -47,31 +47,31 @@
                     android:id="@+id/imageViewGalleryStar1"
                     android:layout_width="@dimen/galeria_obra_icon"
                     android:layout_height="@dimen/galeria_obra_icon"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/ic_star_border_yellow_24dp" />
 
                 <ImageView
                     android:id="@+id/imageViewGalleryStar2"
                     android:layout_width="@dimen/galeria_obra_icon"
                     android:layout_height="@dimen/galeria_obra_icon"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/ic_star_border_yellow_24dp" />
 
                 <ImageView
                     android:id="@+id/imageViewGalleryStar3"
                     android:layout_width="@dimen/galeria_obra_icon"
                     android:layout_height="@dimen/galeria_obra_icon"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/ic_star_border_yellow_24dp" />
 
                 <ImageView
                     android:id="@+id/imageViewGalleryStar4"
                     android:layout_width="@dimen/galeria_obra_icon"
                     android:layout_height="@dimen/galeria_obra_icon"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/ic_star_border_yellow_24dp" />
 
                 <ImageView
                     android:id="@+id/imageViewGalleryStar5"
                     android:layout_width="@dimen/galeria_obra_icon"
                     android:layout_height="@dimen/galeria_obra_icon"
-                    android:src="@drawable/star" />
+                    android:src="@drawable/ic_star_border_yellow_24dp" />
 
             </LinearLayout>
 

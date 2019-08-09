@@ -1,22 +1,23 @@
 package br.com.digitalhouse.harvardartmuseums.view.base;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.fragments.art.ArtDetailFragment;
@@ -24,17 +25,21 @@ import br.com.digitalhouse.harvardartmuseums.fragments.exhibition.ExhibitionFrag
 import br.com.digitalhouse.harvardartmuseums.fragments.favorites.FavoritesFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.gallery.GalleryFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.game.GamePlayFragment;
-import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
-import br.com.digitalhouse.harvardartmuseums.model.object.Object;
-import br.com.digitalhouse.harvardartmuseums.view.help.HelpActivity;
 import br.com.digitalhouse.harvardartmuseums.fragments.home.HomeFragment;
 import br.com.digitalhouse.harvardartmuseums.fragments.information.InfoFragment;
-import br.com.digitalhouse.harvardartmuseums.view.settings.SettingsActivity;
+import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
+import br.com.digitalhouse.harvardartmuseums.model.object.Object;
 import br.com.digitalhouse.harvardartmuseums.view.login.LoginActivity;
+import br.com.digitalhouse.harvardartmuseums.view.settings.SettingsActivity;
 
 public class BaseActivity extends AppCompatActivity implements Comunicator {
 
     public Toolbar toolbar;
+
+    public static final String GOOGLE_ACCOUNT  = "google_accout";
+
+    private GoogleSignInClient googleSignInClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +49,21 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
         //Inicia a toolbar
         initToolbar();
 
+        //Inicializa as Views
+        initViews();
+
+        //Inicialização do Google
+        GoogleSignInOptions gso = new GoogleSignInOptions
+                .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()//request email id
+                .build();
+
+        googleSignInClient= GoogleSignIn.getClient(this, gso);
+
+
         //Inicia o container com event fragment
         initFirstFragment();
+
     }
 
     private void initToolbar() {
@@ -153,13 +171,19 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
                 intent = new Intent(BaseActivity.this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_help:
-                intent = new Intent(BaseActivity.this, HelpActivity.class);
-                startActivity(intent);
-                return true;
             case R.id.action_logout:
-                intent = new Intent(BaseActivity.this, LoginActivity.class);
-                startActivity(intent);
+                googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
+
+                //intent = new Intent(BaseActivity.this, LoginActivity.class);
+                //startActivity(intent);
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -219,5 +243,11 @@ public class BaseActivity extends AppCompatActivity implements Comunicator {
 
         replaceFragment(gamePlayFragment);
         */
+    }
+
+    //Inicializa as Views
+    public void initViews() {
+
+
     }
 }

@@ -1,6 +1,5 @@
 package br.com.digitalhouse.harvardartmuseums.model.favorites;
 
-import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -9,8 +8,6 @@ import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.digitalhouse.harvardartmuseums.data.database.Database;
-import br.com.digitalhouse.harvardartmuseums.data.database.dao.FavoritesDAO;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
 
 @Entity(tableName = "tab_favorites")

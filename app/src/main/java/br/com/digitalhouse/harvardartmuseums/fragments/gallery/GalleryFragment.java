@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +27,10 @@ import br.com.digitalhouse.harvardartmuseums.R;
 import br.com.digitalhouse.harvardartmuseums.adapters.RecyclerViewGalleryAdapter;
 import br.com.digitalhouse.harvardartmuseums.interfaces.Comunicator;
 import br.com.digitalhouse.harvardartmuseums.interfaces.RecyclerViewGalleryClickListener;
+import br.com.digitalhouse.harvardartmuseums.model.favorites.Favorites;
 import br.com.digitalhouse.harvardartmuseums.model.gallery.Gallery;
 import br.com.digitalhouse.harvardartmuseums.model.object.Object;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.viewmodel.GalleryViewModel;
 import br.com.digitalhouse.harvardartmuseums.viewmodel.ObjectViewModel;
 
@@ -35,6 +41,8 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
     private RecyclerView recyclerViewGallery;
     private RecyclerViewGalleryAdapter adapter;
     private Comunicator comunicator;
+
+    private UserData userData = new UserData();
 
     private int pagina = 1; //Primeira página
 
@@ -108,6 +116,37 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
 
                     adapter.addObject(objectListLocal, getContext());
 
+                    // *** Favoritos ***
+                    //Instancia do firebase
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+                    //Referencia
+                    DatabaseReference usuarioReference = databaseReference.child("tab_usuarios").child(userData.getUser().getUid());
+
+                    //Verifica se há favoritos para os itens
+                    for (Object objectLine: objectListLocal){
+
+                        DatabaseReference objectReference = usuarioReference.child("favoritos").child(objectLine.getObjectid().toString());
+
+                        //Adiciona o listener para buscar o objeto gravado em favoritos
+                        objectReference.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                Favorites favoritesLocal = dataSnapshot.getValue(Favorites.class);
+
+                                if (favoritesLocal != null && favoritesLocal.getObjectGallery().getObjectid() != null){
+                                    adapter.modifyObject(favoritesLocal.getObjectGallery(), getContext());
+                                }
+
+                            }
+
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
                 });
 
                 //Observable Error
@@ -126,7 +165,7 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
 
         galleryViewModel = ViewModelProviders.of(this).get(GalleryViewModel.class);
         objectViewModel = ViewModelProviders.of(this).get(ObjectViewModel.class);
-        adapter = new RecyclerViewGalleryAdapter(objectList, this);
+        adapter = new RecyclerViewGalleryAdapter(objectList, this, getActivity());
 
         recyclerViewGallery.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerViewGallery.setAdapter(adapter);
@@ -170,4 +209,5 @@ public class GalleryFragment extends Fragment implements RecyclerViewGalleryClic
             }
         });
     }
+
 }

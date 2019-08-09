@@ -2,21 +2,36 @@ package br.com.digitalhouse.harvardartmuseums.view.login;
 
 import android.content.Intent;
 import android.os.Build;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Objects;
 
 import br.com.digitalhouse.harvardartmuseums.R;
+import br.com.digitalhouse.harvardartmuseums.model.userdata.UserData;
 import br.com.digitalhouse.harvardartmuseums.view.base.BaseActivity;
 
 public class CadastroLoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth firebaseAuth;
 
     private EditText editTextName;
     private EditText editTextLastName;
@@ -39,18 +54,39 @@ public class CadastroLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Login User
-                if (validaDadosCadastroLogin()){
+                if (validaDadosCadastroLogin()) {
 
-                    // ->>>> Incluir neste ponto a gravação do usuario no banco de dados
 
-                    Toast.makeText( v.getContext(),
-                            "Registered user successfully, login in progress...",
-                            Toast.LENGTH_LONG).show();
+                    //Cadastro do usuario
+                    firebaseAuth.createUserWithEmailAndPassword(editTextEmail.getText().toString(), editTextPassword.getText().toString())
+                            .addOnCompleteListener(CadastroLoginActivity.this, new OnCompleteListener<AuthResult>() {
 
-                    Intent intent = new Intent(CadastroLoginActivity.this, BaseActivity.class);
-                    startActivity(intent);
-                    // ->>>> Incluir neste ponto a chamada da BaseActivity (Tela de Galeria)
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
 
+                                    if (task.isSuccessful()) { //Retorna true se o usuario for criado
+
+                                        // Sign in success, update UI with the signed-in user's information
+                                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                                        updateUI(user);
+
+                                        Toast.makeText(v.getContext(),
+                                                "Registered user successfully, login in progress...",
+                                                Toast.LENGTH_LONG).show();
+
+                                        Intent intent = new Intent(CadastroLoginActivity.this, BaseActivity.class);
+                                        startActivity(intent);
+
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Toast.makeText(v.getContext(),
+                                                "Authentication failed: " + task.getException(),
+                                                Toast.LENGTH_LONG).show();
+
+                                        updateUI(null);
+                                    }
+                                }
+                            });
                 }
 
             }
@@ -71,7 +107,7 @@ public class CadastroLoginActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
         }
@@ -81,6 +117,8 @@ public class CadastroLoginActivity extends AppCompatActivity {
     private void initObjects() {
 
         //Inicializa Objetos
+        firebaseAuth = FirebaseAuth.getInstance(); //Autenticação
+
         editTextName = findViewById(R.id.editTextName);
         editTextLastName = findViewById(R.id.editTextLastName);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -105,42 +143,42 @@ public class CadastroLoginActivity extends AppCompatActivity {
         int minimalPassLen = 6;
 
         //Validate Name field
-        if (textName.isEmpty()){
+        if (textName.isEmpty()) {
             editTextName.setError("Name is mandatory");
             return false;
         }
 
         //Validate Last Name field
-        if (textLastName.isEmpty()){
+        if (textLastName.isEmpty()) {
             editTextLastName.setError("Last Name is mandatory");
             return false;
         }
 
         //Validate Email field
-        if (textEmail.isEmpty()){
+        if (textEmail.isEmpty()) {
             editTextEmail.setError("Email is mandatory");
             return false;
         }
 
         //Validate Password field
-        if (textPassword.isEmpty()){
+        if (textPassword.isEmpty()) {
             editTextPassword.setError("Password is mandatory");
             return false;
         }
 
-        if (textPassword.length() < minimalPassLen){
+        if (textPassword.length() < minimalPassLen) {
             editTextPassword.setError("Enter password with 6 or more characters");
             return false;
         }
 
         //Validate Repeat Password field
-        if (textRepeatPassword.isEmpty()){
+        if (textRepeatPassword.isEmpty()) {
             editTextRepeatPassword.setError("Repeat Password is mandatory");
             return false;
         }
 
         //Password and Repeat Password fields can not be different
-        if (! textPassword.equals(textRepeatPassword)){
+        if (!textPassword.equals(textRepeatPassword)) {
             editTextRepeatPassword.setError("The Password can not be different");
             return false;
         }
@@ -156,4 +194,11 @@ public class CadastroLoginActivity extends AppCompatActivity {
         return true;
     }
 
+    private void updateUI(FirebaseUser user) {
+
+        UserData userData = new UserData();
+        userData.setUser(user);
+
+        userData.inicializaDados();
+    }
 }
