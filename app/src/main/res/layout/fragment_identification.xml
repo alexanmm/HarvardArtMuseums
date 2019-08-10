@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewIdentificationTitleLable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:padding="8dp"
+        android:text="@string/identification_title"
+        android:textColor="#47525E"
+        android:textSize="18sp"
+        app:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationObjectId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationObjectNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationVerificationLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationVerificationLevelDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationTechnique"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationEdition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationLastUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationCopyright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewIdentificationCreditline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+</LinearLayout>

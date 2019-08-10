@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".fragments.art.DescriptionsFragment">
+
+    <TextView
+        android:id="@+id/textViewDescriptionsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:padding="8dp"
+        android:text="@string/descriptions_title"
+        android:textColor="#47525E"
+        android:textSize="18sp"
+        app:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsClassification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsProvenance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsCulture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsDivision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionsDimensions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+</LinearLayout>

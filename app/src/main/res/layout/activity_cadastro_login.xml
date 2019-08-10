@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".login.CadastroLoginActivity">
+    android:background="@color/colorWhite">
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -18,7 +20,7 @@
         android:layout_margin="16dp"
         android:background="@drawable/background_card"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="@dimen/fab_margin"
         app:layout_constraintEnd_toEndOf="@+id/profile_image"
         app:layout_constraintStart_toStartOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="@+id/profile_image">
@@ -31,7 +33,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/name"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextLastName"
@@ -40,7 +43,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/last_name"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -49,7 +53,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -58,7 +63,8 @@
             android:background="@drawable/background_card2"
             android:hint="@string/password_6_or_more_characters"
             android:inputType="textPassword"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/editTextRepeatPassword"
@@ -90,7 +96,7 @@
 
     </LinearLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -106,5 +112,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

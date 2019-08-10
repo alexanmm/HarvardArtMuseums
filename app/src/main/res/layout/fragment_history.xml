@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context=".fragments.art.HistoryFragment">
+
+    <TextView
+        android:id="@+id/textViewHistoryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/background_light"
+        android:padding="8dp"
+        android:text="@string/history_title"
+        android:textColor="#47525E"
+        android:textSize="18sp"
+        app:fontFamily="sans-serif-black" />
+
+    <TextView
+        android:id="@+id/textViewHistoryCentury"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryDated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryPeriod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryExhibitioncount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryDatebegin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryDateend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textViewHistoryContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/lines_detail"
+        android:textSize="16sp" />
+
+</LinearLayout>

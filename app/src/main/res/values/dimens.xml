@@ -1,3 +1,8 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="lay_width">60dp</dimen>
+    <dimen name="lay_height">30dp</dimen>
+    <dimen name="txt_size">16sp</dimen>
+    <dimen name="galeria_obra_icon" tools:ignore="MissingDefaultResource">24dp</dimen>
+    <dimen name="default_card_margin">16dp</dimen>
 </resources>
